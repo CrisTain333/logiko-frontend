@@ -5,20 +5,20 @@ module.exports = {
     themes: [
       {
         light: {
-          primary: "#3075FF",
-          secondary: "#D2E3FF",
-          accent: "#ADB5BD",
-          neutral: "#F5F5F5",
-          warning: "#FE9431",
-          "base-100": "#FBFCFE",
-          "base-200": "#ffffff",
-          "base-900": "#212529",
+          primary: "#3075FF", //primary color
+          secondary: "#D2E3FF", //secondary color
+          accent: "#ADB5BD", // inactive icon or text color
+          neutral: "#F5F5F5", // inactive icon background or secondary text color
+          warning: "#FE9431", // badge color
+          "base-100": "#FBFCFE", // body color
+          "base-200": "#ffffff", // white color
+          "base-900": "#212529", // dark text
         },
         dark: {
-          neutral: "#1A2236",
-          "base-100": "#1A2236",
-          "base-200": "#293145",
-          "base-900": "#DCDDE0",
+          neutral: "#1A2236", // inactive icon background or secondary text color
+          "base-100": "#1A2236", // body color
+          "base-200": "#293145", // white color
+          "base-900": "#DCDDE0", // light text
         },
       },
     ],
