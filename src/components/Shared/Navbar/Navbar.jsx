@@ -11,7 +11,7 @@ const Navbar = () => {
 
         {/* <!-- sun icon --> */}
         <svg
-          className="swap-on fill-current w-10 h-10"
+          className="swap-on fill-current w-10 h-10 text-primary"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -20,7 +20,7 @@ const Navbar = () => {
 
         {/* <!-- moon icon --> */}
         <svg
-          className="swap-off fill-current w-10 h-10"
+          className="swap-off fill-current w-10 h-10 text-primary"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
