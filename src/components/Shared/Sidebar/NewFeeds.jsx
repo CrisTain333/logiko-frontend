@@ -4,12 +4,13 @@ import badge from "../../../Images/Icons/award.png";
 import storyIcon from "../../../Images/Icons/instagram-stories.png";
 import popularIcon from "../../../Images/Icons/flash-sale.png";
 import userIcon from "../../../Images/Icons/user.png";
+
 const NewFeeds = () => {
   return (
     <>
-      <div className="shadow-md mt-10 rounded-lg p-3 mx-2 bg-white">
+      <div className="shadow-md mt-5 rounded-lg p-3 mx-2 bg-white">
         <div>
-          <p className="text-sm text-gray-500 font-bold">New Feeds</p>
+          <p className="text-sm text-gray-400 font-bold">New Feeds</p>
           <div className="mt-3">
             {/* Links */}
             <div className="flex items-center my-3">

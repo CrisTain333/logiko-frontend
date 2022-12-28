@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/Shared/Navbar/Navbar";
 import Footer from "../components/Shared/Footer/Footer";
 import NewFeeds from "../components/Shared/Sidebar/NewFeeds";
+import Account from "../components/Shared/Sidebar/Account";
 const MainLayout = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const MainLayout = () => {
           {/* Left sidebar */}
           <div className="left_Sidebar col-span-2">
             <NewFeeds />
+            <Account />
           </div>
 
           <div className="main_ content col-span-10 ">
