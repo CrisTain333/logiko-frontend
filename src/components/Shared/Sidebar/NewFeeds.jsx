@@ -8,48 +8,48 @@ import userIcon from "../../../Images/Icons/user.png";
 const NewFeeds = () => {
   return (
     <>
-      <div className="shadow-md mt-5 rounded-lg p-3 mx-2 bg-white">
+      <div className="shadow-md mt-5 rounded-lg p-3  bg-base-200 w-[85%] mx-auto">
         <div>
-          <p className="text-sm text-gray-400 font-bold">New Feeds</p>
-          <div className="mt-3">
+          <p className="text-sm text-neutral font-bold">New Feeds</p>
+          <div className="mt-3 space-y-3">
             {/* Links */}
-            <div className="flex items-center my-3">
+            <div className="flex items-center">
               <div>
-                <img src={newsFeed} alt="" className="h-7 w-7" />
+                <img src={newsFeed} alt="" className="h-9 w-9" />
               </div>
-              <span className="text-gray-500 font-semibold ml-2 hover:text-blue-600 transition-all duration-500 cursor-pointer">
+              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Newsfeed
               </span>
             </div>
-            <div className="flex items-center my-3">
+            <div className="flex items-center">
               <div>
-                <img src={badge} alt="" className="h-7 w-7" />
+                <img src={badge} alt="" className="h-9 w-9" />
               </div>
-              <span className="text-gray-500 font-semibold ml-2 hover:text-blue-600 transition-all duration-500 cursor-pointer">
+              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Badge
               </span>
             </div>
-            <div className="flex items-center my-3">
+            <div className="flex items-center">
               <div>
-                <img src={storyIcon} alt="" className="h-7 w-7" />
+                <img src={storyIcon} alt="" className="h-9 w-9" />
               </div>
-              <span className="text-gray-500 font-semibold ml-2 hover:text-blue-600 transition-all duration-500 cursor-pointer">
+              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Explore Stories
               </span>
             </div>
-            <div className="flex items-center my-3">
+            <div className="flex items-center">
               <div>
-                <img src={popularIcon} alt="" className="h-7 w-7" />
+                <img src={popularIcon} alt="" className="h-9 w-9" />
               </div>
-              <span className="text-gray-500 font-semibold ml-2 hover:text-blue-600 transition-all duration-500 cursor-pointer">
+              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Popular Groups
               </span>
             </div>
-            <div className="flex items-center my-3">
+            <div className="flex items-center">
               <div>
-                <img src={userIcon} alt="" className="h-7 w-7" />
+                <img src={userIcon} alt="" className="h-9 w-9" />
               </div>
-              <span className="text-gray-500 font-semibold ml-2 hover:text-blue-600 transition-all duration-500 cursor-pointer">
+              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Author Profile
               </span>
             </div>

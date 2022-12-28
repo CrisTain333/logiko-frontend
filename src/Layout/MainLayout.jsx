@@ -11,12 +11,12 @@ const MainLayout = () => {
       <div className="main_container">
         <div className="grid grid-cols-12">
           {/* Left sidebar */}
-          <div className="left_Sidebar col-span-2">
+          <div className="left_Sidebar col-span-3">
             <NewFeeds />
             <Account />
           </div>
 
-          <div className="main_ content col-span-10 mt-5 ">
+          <div className="main_content col-span-9 mt-5 ">
             <Outlet />
           </div>
         </div>
