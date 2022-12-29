@@ -10,13 +10,14 @@ module.exports = {
           accent: "#888888", // inactive icon or text color
           neutral: "#adb5bd", // inactive icon background or secondary text color
           warning: "#FE9431", // badge color
+          info: "#EEEEEE",
           "base-100": "#FBFCFE", // body color
           "base-200": "#ffffff", // white color
           "base-900": "#212529", // dark text
         },
         dark: {
           accent: "#dddddd", // inactive icon or text color
-          // neutral: "#1A2236", // inactive icon background or secondary text color
+          info: "#1A2236",
           "base-100": "#1A2236", // body color
           "base-200": "#293145", // white color
           "base-900": "#ffffff", // light text
