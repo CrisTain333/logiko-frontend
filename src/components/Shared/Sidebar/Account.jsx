@@ -1,8 +1,8 @@
 import React from "react";
-import settingIcon from "../../../Images/Icons/settings.png";
-import chatIcon from "../../../Images/Icons/chat.png";
-import dataIcon from "../../../Images/Icons/data-analytics.png";
-import logOut from "../../../Images/Icons/logout.png";
+import settingIcon from "../../../assets/Icons/settings.png";
+import chatIcon from "../../../assets/Icons/chat.png";
+import dataIcon from "../../../assets/Icons/data-analytics.png";
+import logOut from "../../../assets/Icons/logout.png";
 
 const Account = () => {
   return (

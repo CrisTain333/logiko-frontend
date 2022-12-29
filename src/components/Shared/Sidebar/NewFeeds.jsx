@@ -1,9 +1,9 @@
 import React from "react";
-import newsFeed from "../../../Images/Icons/newsfeed.png";
-import badge from "../../../Images/Icons/award.png";
-import storyIcon from "../../../Images/Icons/instagram-stories.png";
-import popularIcon from "../../../Images/Icons/flash-sale.png";
-import userIcon from "../../../Images/Icons/user.png";
+import newsFeed from "../../../assets/Icons/newsfeed.png";
+import badge from "../../../assets/Icons/award.png";
+import storyIcon from "../../../assets/Icons/instagram-stories.png";
+import popularIcon from "../../../assets/Icons/flash-sale.png";
+import userIcon from "../../../assets/Icons/user.png";
 
 const NewFeeds = () => {
   return (
