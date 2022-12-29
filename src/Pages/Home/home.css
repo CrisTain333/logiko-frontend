@@ -1,3 +1,76 @@
 .example::-webkit-scrollbar {
     display: none;
 }
+
+.add-card {
+    /* margin: 50px auto; */
+    width: 130px;
+    height: 215px;
+    border-radius: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* transition: all .25s ease; */
+}
+
+.add-card .content p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    font-size: 1rem;
+    opacity: 0;
+    margin-bottom: -160px;
+    /* transition: all .25s ease; */
+}
+
+.add-card .content p button {
+    padding: 8px 18px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: .8rem;
+    margin-top: 10px;
+    margin-left: auto;
+    cursor: pointer;
+    /* transition: all .25s ease; */
+}
+
+.add-card:hover .content p {
+    margin-bottom: 0;
+    opacity: 1;
+}
+
+.add-card:hover img {
+    /* transform: scale(1.50); */
+}
+
+.add-card:hover ul {
+    transform: translate(0);
+    opacity: 1;
+}
+
+
+.add-card img {
+    height: 112%;
+    z-index: 10;
+    /* transition: all .25s ease; */
+}
+
+.add-card .content {
+    z-index: 30;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    padding: 20px;
+    padding-bottom: 20px;
+}
+
+.add-card .content p button:hover {
+    background: #fff;
+    color: #000;
+}

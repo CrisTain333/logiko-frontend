@@ -8,14 +8,22 @@ import userIcon from "../../../Images/Icons/user.png";
 const NewFeeds = () => {
   return (
     <>
-      <div className="shadow-md mt-5 rounded-lg p-3  bg-base-200 w-[85%] mx-auto">
+      <div className="shadow-md mt-5 rounded-xl py-5 px-4 bg-base-200 w-[80%] mx-auto">
         <div>
-          <p className="text-sm text-neutral font-bold">New Feeds</p>
-          <div className="mt-3 space-y-3">
+          <p className="text-sm text-neutral font-medium">New Feeds</p>
+          <div className="mt-5 space-y-4">
             {/* Links */}
             <div className="flex items-center">
               <div>
-                <img src={newsFeed} alt="" className="h-9 w-9" />
+                <img src={userIcon} alt="" className="h-7 w-7" />
+              </div>
+              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                User Profile
+              </span>
+            </div>
+            <div className="flex items-center">
+              <div>
+                <img src={newsFeed} alt="" className="h-7 w-7" />
               </div>
               <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Newsfeed
@@ -23,15 +31,7 @@ const NewFeeds = () => {
             </div>
             <div className="flex items-center">
               <div>
-                <img src={badge} alt="" className="h-9 w-9" />
-              </div>
-              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Badge
-              </span>
-            </div>
-            <div className="flex items-center">
-              <div>
-                <img src={storyIcon} alt="" className="h-9 w-9" />
+                <img src={storyIcon} alt="" className="h-7 w-7" />
               </div>
               <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Explore Stories
@@ -39,18 +39,18 @@ const NewFeeds = () => {
             </div>
             <div className="flex items-center">
               <div>
-                <img src={popularIcon} alt="" className="h-9 w-9" />
+                <img src={badge} alt="" className="h-7 w-7" />
               </div>
               <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Popular Groups
+                Badge
               </span>
             </div>
             <div className="flex items-center">
               <div>
-                <img src={userIcon} alt="" className="h-9 w-9" />
+                <img src={popularIcon} alt="" className="h-7 w-7" />
               </div>
               <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Author Profile
+                Popular Groups
               </span>
             </div>
           </div>
