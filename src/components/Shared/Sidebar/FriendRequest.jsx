@@ -1,4 +1,6 @@
 import React from "react";
+import Primary from "../Button/Primary";
+import Secondary from "../Button/Secondary";
 
 const FriendRequest = ({ img, name }) => {
   return (
@@ -12,7 +14,7 @@ const FriendRequest = ({ img, name }) => {
           <div>
             <div className="avatar">
               <div className="w-10 rounded-full">
-                <img src={img} />
+                <img src={img} alt="" />
               </div>
             </div>
           </div>
@@ -24,18 +26,14 @@ const FriendRequest = ({ img, name }) => {
             <p className="text-xs font-semibold text-neutral mt-1">
               12 Mutual Friend
             </p>
-          </div>
+          </div> 
         </div>
 
         {/* button div  */}
         <div className="mt-3">
           <div className="space-x-2">
-            <button className="bg-primary py-1 px-4 rounded-full text-base-200">
-              Confirm
-            </button>
-            <button className="bg-gray-100 py-1 px-4 rounded-full text-base-900">
-              Delete
-            </button>
+            <Primary /> 
+            <Secondary />
           </div>
         </div>
       </div>

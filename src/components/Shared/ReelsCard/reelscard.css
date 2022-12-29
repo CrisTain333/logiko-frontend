@@ -1,7 +1,7 @@
 .card {
     /* margin: 50px auto; */
-    width: 150px;
-    height: 225px;
+    width: 130px;
+    height: 215px;
     border-radius: 15px;
     overflow: hidden;
     backface-visibility: hidden;
@@ -9,7 +9,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-
     /* transition: all .25s ease; */
 }
 

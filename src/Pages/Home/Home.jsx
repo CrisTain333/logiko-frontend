@@ -7,12 +7,41 @@ const Home = () => {
     <div>
       {/* Main Div  */}
       <div>
-        <dvi className="grid grid-cols-12">
+        <dvi className="grid grid-cols-12 gap-4">
           {/* newsFeed */}
           <div className="col-span-8">
             {/* ----- Main Content DIV ------ */}
             <div>
-              <div className="reals_div flex overflow-hidden  example space-x-3">
+              <div className="reals_div flex overflow-x-scroll example space-x-3">
+                {/* add story */}
+                <div>
+                  <div>
+                    <div className="add-card bg-[#343A40] dark:bg-[#293145]">
+                      <div className="" />
+                      <div className="content">
+                        <div className="flex justify-center mb-2">
+                          <div className="w-10 rounded-full">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="rounded-full p-2 w-10 h-10 bg-white text-primary"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 4.5v15m7.5-7.5h-15"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <h2 className="text-center font-medium">Add Story</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <ReelsCard
                   image={"https://pbs.twimg.com/media/FWUckPnaMAMqPYA.jpg"}
                   name={"Kerrty"}
@@ -53,16 +82,16 @@ const Home = () => {
 
           {/* rightSide component */}
           <div className="col-span-4">
-            <div className="bg-base-200 rounded-lg shadow-md w-[90%]  p-3">
+            <div className="bg-base-200 rounded-xl shadow-md w-[90%] py-5 px-4">
               <div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between px-2">
                   <p className=" font-semibold text-base-900">Friend Request</p>
                   <p className="text-primary font-semibold cursor-pointer">
                     See All
                   </p>
                 </div>
                 {/* Friend Request component */}
-                <div className="space-y-5 py-5">
+                <div className="space-y-5 pt-5 pb-3">
                   <FriendRequest
                     img={"https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"}
                     name={"Cristain"}

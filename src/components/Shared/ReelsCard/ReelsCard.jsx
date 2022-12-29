@@ -8,12 +8,12 @@ const ReelsCard = ({ image, name, userProfile }) => {
         <div className="card">
           <img src={image} alt="" className="object-cover" />
           <div className="content">
-            <div className="avatar">
-              <div className="w-14 rounded-full">
-                <img src={userProfile} alt="" />
+            <div className="avatar flex justify-center mb-2">
+              <div className="w-10 rounded-full">
+                <img className="" src={userProfile} alt="" />
               </div>
             </div>
-            <h2>{name}</h2>
+            <h2 className="text-center font-medium">{name}</h2>
           </div>
         </div>
       </div>
