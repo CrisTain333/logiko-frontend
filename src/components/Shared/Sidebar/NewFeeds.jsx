@@ -1,9 +1,9 @@
 import React from "react";
 import newsFeed from "../../../assets/Icons/newsfeed.png";
-import badge from "../../../assets/Icons/award.png";
 import storyIcon from "../../../assets/Icons/instagram-stories.png";
-import popularIcon from "../../../assets/Icons/flash-sale.png";
+import friends from "../../../assets/Icons/friends.png";
 import userIcon from "../../../assets/Icons/user.png";
+import chatIcon from "../../../assets/Icons/chat.png";
 
 const NewFeeds = () => {
   return (
@@ -39,18 +39,18 @@ const NewFeeds = () => {
             </div>
             <div className="flex items-center">
               <div>
-                <img src={badge} alt="" className="h-7 w-7" />
+                <img src={friends} alt="" className="h-7 w-7" />
               </div>
               <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Badge
+                Friends
               </span>
             </div>
             <div className="flex items-center">
               <div>
-                <img src={popularIcon} alt="" className="h-7 w-7" />
+                <img src={chatIcon} alt="" className="h-7 w-7" />
               </div>
               <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Popular Groups
+                Chat
               </span>
             </div>
           </div>
