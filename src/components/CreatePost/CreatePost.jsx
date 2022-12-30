@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import userIcon from "../../assets/Icons/user.png";
+import PostModal from './PostModal';
 
 const CreatePost = () => {
+  const [showModal, setShowModal] = useState(false);
     return (
-      <div className="bg-base-200 rounded-xl space-y-4 p-6">
+      <div className="bg-base-200 rounded-xl shadow-md space-y-4 p-6">
         <div className="flex items-center space-x-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,19 +24,20 @@ const CreatePost = () => {
           <p className="text-sm text-neutral font-medium">Create Post</p>
         </div>
         <div>
-          <div class="w-auto space-x-3 flex items-center">
+          <div className="w-auto space-x-3 flex items-center">
             <img src={userIcon} alt="" className="h-9 w-9" />
             <input
+              onClick={() => setShowModal(true)}
               type="text"
               id="simple-search"
-              class="text-sm rounded-full block w-full pl-5 p-2.5 bg-info focus:border-none focus:outline-none"
+              className="text-sm rounded-full block w-full pl-5 p-2.5 bg-info cursor-pointer focus:border-none focus:outline-none"
               placeholder="What's on your mind?"
               readOnly
               required
             />
           </div>
         </div>
-        <hr className="w-[95%] mx-auto" />
+        <div className="divider my-0"></div>
         <div className="flex justify-evenly items-center space-x-3">
           <button className="flex items-center justify-center space-x-2 hover:bg-info w-full py-2 rounded-lg">
             <svg
@@ -89,6 +92,7 @@ const CreatePost = () => {
             <p className="text-base-900 font-medium">Feeling/Activity</p>
           </button>
         </div>
+        <PostModal showModal={showModal} setShowModal={setShowModal} />
       </div>
     );
 };

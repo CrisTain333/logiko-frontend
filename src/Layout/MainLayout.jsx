@@ -11,7 +11,7 @@ const MainLayout = () => {
       <div className="main_container">
         <div className="grid grid-cols-12">
           {/* Left sidebar */}
-          <div className="left_Sidebar col-span-3 hidden lg:block">
+          <div className="left_Sidebar col-span-3 hidden sticky top-20 h-screen lg:block">
             <NewFeeds />
             <Account />
           </div>
