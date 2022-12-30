@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { themeContext } from "../../../context/ThemeContext";
-import logo from "../../../assets/Icons/logiko.png";
+import logo from "../../../assets/Icons/logiko-without-bg.png";
 import userIcon from "../../../assets/Icons/user.png";
 import dot from "../../../assets/Icons/dot.png";
 
@@ -13,8 +13,7 @@ const Navbar = () => {
       <>
         <div className="container mx-auto grid grid-cols-12">
           <div className="col-span-3 flex items-center">
-            <img className="h-11 w-auto" src={logo} alt="" />
-            <p className="navbar-logo text-5xl text-primary -ml-1">ogiko.</p>
+            <img className="h-20 w-auto" src={logo} alt="" />
           </div>
           <div className="col-span-9 flex items-center justify-between">
             <div>
