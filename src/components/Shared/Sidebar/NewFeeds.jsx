@@ -4,6 +4,7 @@ import storyIcon from "../../../assets/Icons/instagram-stories.png";
 import friends from "../../../assets/Icons/friends.png";
 import userIcon from "../../../assets/Icons/user.png";
 import chatIcon from "../../../assets/Icons/chat.png";
+import { Link } from "react-router-dom";
 
 const NewFeeds = () => {
   return (
@@ -17,17 +18,21 @@ const NewFeeds = () => {
               <div>
                 <img src={userIcon} alt="" className="h-7 w-7" />
               </div>
-              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                User Profile
-              </span>
+              <Link to="/user-profile">
+                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  User Profile
+                </span>
+              </Link>
             </div>
             <div className="flex items-center">
               <div>
                 <img src={newsFeed} alt="" className="h-7 w-7" />
               </div>
-              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Newsfeed
-              </span>
+              <Link to="/">
+                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Newsfeed
+                </span>
+              </Link>
             </div>
             <div className="flex items-center">
               <div>
