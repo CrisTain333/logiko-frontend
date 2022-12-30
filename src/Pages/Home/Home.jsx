@@ -1,4 +1,5 @@
 import React from "react";
+import CreatePost from "../../components/CreatePost/CreatePost";
 import ReelsCard from "../../components/Shared/ReelsCard/ReelsCard";
 import FriendRequest from "../../components/Shared/Sidebar/FriendRequest";
 import "./home.css";
@@ -11,7 +12,7 @@ const Home = () => {
           {/* newsFeed */}
           <div className="col-span-8">
             {/* ----- Main Content DIV ------ */}
-            <div>
+            <div className="space-y-5">
               <div className="reals_div flex overflow-x-scroll example space-x-3">
                 {/* add story */}
                 <div>
@@ -77,6 +78,8 @@ const Home = () => {
                   }
                 />
               </div>
+              {/* Create Post */}
+              <CreatePost />
             </div>
           </div>
 
