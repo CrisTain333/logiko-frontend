@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       {/* Main Div  */}
       <div>
-        <dvi className="grid grid-cols-12 gap-4">
+        <div className="grid grid-cols-12 gap-4">
           {/* newsFeed */}
           <div className="col-span-8">
             {/* ----- Main Content DIV ------ */}
@@ -115,7 +115,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </dvi>
+        </div>
       </div>
     </div>
   );

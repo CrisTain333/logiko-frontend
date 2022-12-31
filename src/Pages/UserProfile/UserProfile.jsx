@@ -5,40 +5,37 @@ const UserProfile = () => {
   return (
     <div>
       {/*user main Div  */}
-      <div className="shadow-md p-6 rounded-lg mr-7 bg-base-200">
+      <div className="shadow-md p-6 rounded-lg mr-8 bg-base-200">
         {/* cover Image Div */}
         <div className="relative">
           <img
-            className="rounded-2xl"
+            className="rounded-lg"
             src="https://i.ibb.co/3cV8HR6/attachment1.png"
             alt=""
           />
-          <div className="avatar -bottom-16 left-10 absolute">
-            <div
-              className="w-24 rounded-full"
-              style={{ border: "3px solid white" }}
-            >
-              <img
-                className="object-contain"
-                src="https://images.unsplash.com/photo-1574701148212-8518049c7b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJldHR5JTIwZ2lybHxlbnwwfHwwfHw%3D&w=1000&q=80"
-                alt=""
-              />
+
+          <div className="absolute bottom-[-6rem] left-10">
+            <div className="flex items-end space-x-5">
+              <div className="outline outline-4 outline-base-200 rounded-full">
+                <img
+                  className="object-cover w-32 h-32 rounded-full"
+                  src="https://images.unsplash.com/photo-1574701148212-8518049c7b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJldHR5JTIwZ2lybHxlbnwwfHwwfHw%3D&w=1000&q=80"
+                  alt=""
+                />
+              </div>
+              <div className="pb-5">
+                <p className="text-2xl text-base-900 font-bold">Cristain</p>
+                <p className="text-sm text-base-900">
+                  400 Friends <span className="font-extrabold">•</span> 1.2k Followers
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* user info Div  */}
-        <div className="user_info_main_div flex items-center ml-5">
-          {/* profile Div */}
-
-          <div className="ml-32 mt-4">
-            <p className="text-xl text-base-900 font-bold">Cristain</p>
-          </div>
-        </div>
-
         {/* Links DIV  */}
-        <div className="mt-8">
-          <hr className="mb-5" />
+        <div className="mt-28">
+          <div className="divider mt-0"></div>
           <ul className="flex space-x-6">
             <li className="text-base text-base-900 font-semibold cursor-pointer">
               About
@@ -57,12 +54,12 @@ const UserProfile = () => {
       </div>
 
       {/* user about and post Main div  */}
-      <div className="user_about_div mr-7 mt-10">
+      <div className="user_about_div mr-8 mt-10">
         {/* main_DIV */}
         <div className="grid grid-cols-12 space-x-3">
           {/* user About */}
-          <div className="col-span-3">
-            <div className="p-3 rounded-lg bg-base-200 shadow-md ">
+          <div className="col-span-4">
+            <div className="p-5 rounded-lg bg-base-200 shadow-md ">
               {/* user Bio  */}
               <div>
                 <p className="text-sm font-bold text-base-900 "> About</p>
@@ -73,7 +70,7 @@ const UserProfile = () => {
                 </p>
               </div>
               <div className="mt-5">
-                <hr className="mb-5" />
+                <div className="divider mt-0"></div>
                 <ul className="space-y-3">
                   <li className="flex items-center">
                     <svg
@@ -111,7 +108,7 @@ const UserProfile = () => {
 
                     <p className="ml-2 text-sm">
                       Lives in{" "}
-                      <span className="font-semibold">Muscat,Oman</span>{" "}
+                      <span className="font-semibold">Muscat, Oman</span>{" "}
                     </p>
                   </li>
                   <li className="flex items-center">
@@ -132,7 +129,7 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-9">
+          <div className="col-span-8">
             <CreatePost />
           </div>
         </div>
