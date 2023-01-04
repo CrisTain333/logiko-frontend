@@ -8,22 +8,29 @@ const UserPost = () => {
       {/* main div */}
       <div className="mainDiv">
         {/* user info div  */}
-        <div>
-          <div>
-            <img src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png" alt="" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between">
+            <div className="avatar">
+              <div className="w-10 rounded-full">
+                <img
+                  src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
+                  alt=""
+                />
+              </div>
+            </div>
             {/* user name and time */}
-            <div>
-              <p>Cristain</p>
-              <p>22 min ago</p>
+            <div className="ml-5">
+              <p className="text-sm font-bold text-base-900">Cristain</p>
+              <p className="text-xs font-semibold text-neutral">22 min ago</p>
             </div>
           </div>
           <div>
-            <div>
+            <div className=" rounded-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-6 h-6"
+                className="w-6 h-6 text-base-900"
               >
                 <path
                   fillRule="evenodd"
@@ -35,29 +42,32 @@ const UserPost = () => {
           </div>
         </div>
         {/* user Text  */}
-        <div>
-          <p>
+        <div className="w-[80%] my-5">
+          <p className=" flex- flex-wrap text-sm text-neutral">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
             inventore neque rem eaque, tempore blanditiis.
           </p>
         </div>
 
         {/* user posted Image  */}
-        <div>
-          <img src={userPostImage} alt="" />
+        <div className="rounded-xl">
+          <img src={userPostImage} className="rounded-xl" alt="" />
         </div>
 
         {/* Action div */}
-        <div>
-          <div>
+        <div className="flex items-center justify-between mt-5 mx-5">
+          <div className=" flex items-center">
             {/* react div  */}
-            <div>
-              <img src={heartIcon} alt="" />
-              <p>2.6k like</p>
+            <div className="flex items-center justify-between">
+              <img
+                src={heartIcon}
+                className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
+                alt=""
+              />
+              <p className="ml-2 text-sm font-bold text-base-900">2.6k like</p>
             </div>
-
             {/* comment div */}
-            <div>
+            <div className="flex items-center justify-between ml-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -72,11 +82,11 @@ const UserPost = () => {
                   d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"
                 />
               </svg>
-              <p>22 Comment</p>
+              <p className="ml-2 text-sm font-bold text-base-900">22 Comment</p>
             </div>
           </div>
           {/* share div  */}
-          <div>
+          <div className="flex items-center ">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +94,7 @@ const UserPost = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-5 h-5"
               >
                 <path
                   strokeLinecap="round"
@@ -93,7 +103,7 @@ const UserPost = () => {
                 />
               </svg>
             </div>
-            <p>Share</p>
+            <p className="ml-2 text-sm font-bold text-base-900">Share</p>
           </div>
         </div>
       </div>
