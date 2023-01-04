@@ -3,6 +3,10 @@ import CreatePost from "../../components/CreatePost/CreatePost";
 import ReelsCard from "../../components/Shared/ReelsCard/ReelsCard";
 import FriendRequest from "../../components/Shared/Sidebar/FriendRequest";
 import UserPost from "../../components/UserPost/UserPost";
+import userPost1 from "../../assets/images/MirsoN_zone_ankha_minus_8_meme_as_an_80s_dark_fantasy_film_5f90d6fc-cc0d-49b2-84c1-0abe640035fc.png";
+import userPost2 from "../../assets/images/Thoraha_a_logo_design_for_a_biodesign_studio_abstract_and_minim_4fbbab46-b745-429f-b27b-c7e60867ac53.png";
+import userpost3 from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
+
 import "./home.css";
 const Home = () => {
   return (
@@ -83,7 +87,9 @@ const Home = () => {
               <CreatePost />
 
               {/* User Post  */}
-              <UserPost />
+              <UserPost img={userPost1} />
+              <UserPost img={userPost2} />
+              <UserPost img={userpost3} />
             </div>
           </div>
 
