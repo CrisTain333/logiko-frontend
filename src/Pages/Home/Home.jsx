@@ -2,6 +2,7 @@ import React from "react";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import ReelsCard from "../../components/Shared/ReelsCard/ReelsCard";
 import FriendRequest from "../../components/Shared/Sidebar/FriendRequest";
+import UserPost from "../../components/UserPost/UserPost";
 import "./home.css";
 const Home = () => {
   return (
@@ -80,6 +81,9 @@ const Home = () => {
               </div>
               {/* Create Post */}
               <CreatePost />
+
+              {/* User Post  */}
+              <UserPost />
             </div>
           </div>
 
