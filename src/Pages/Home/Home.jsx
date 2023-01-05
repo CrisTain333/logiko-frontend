@@ -89,7 +89,7 @@ const Home = () => {
               {/* User Post  */}
               <UserPost img={userPost1} />
               <UserPost img={userPost2} />
-              <UserPost img={userpost3} />
+              <UserPost />
             </div>
           </div>
 

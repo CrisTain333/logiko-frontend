@@ -50,9 +50,11 @@ const UserPost = ({ img }) => {
         </div>
 
         {/* user posted Image  */}
-        <div className="rounded-xl">
-          <img src={img} className="rounded-xl" alt="" />
-        </div>
+        {img ? (
+          <div className="rounded-xl">
+            <img src={img} className="rounded-xl" alt="" />
+          </div>
+        ) : null}
 
         {/* Action div */}
         <div className="flex items-center justify-between mt-5 mx-5">
