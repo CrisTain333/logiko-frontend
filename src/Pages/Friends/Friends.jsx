@@ -36,25 +36,7 @@ const Friends = () => {
           </div>
         </div>
 
-        {/* user Card */}
-        <div>
-          <div className="avatar">
-            <div className="w-10 rounded-full">
-              <img
-                src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div>
-            <p>Cristain</p>
-          </div>
-
-          <div>
-            <button>View Profile</button>
-          </div>
-        </div>
+        <div className="grid grid-cols-4 mt-10">{/* user Friend Card */}</div>
       </div>
     </div>
   );
