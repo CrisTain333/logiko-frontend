@@ -8,10 +8,10 @@ const MainLayout = () => {
     <>
       <Navbar />
       {/* Main container  */}
-      <div className="main_container">
+      <div className="main_container hidden lg:block">
         <div className="grid grid-cols-12">
           {/* Left sidebar */}
-          <div className="left_Sidebar col-span-3 hidden sticky top-20 h-screen lg:block">
+          <div className="left_Sidebar col-span-3 hidden sticky top-14 h-screen lg:block">
             <NewFeeds />
             <Account />
           </div>
@@ -19,6 +19,29 @@ const MainLayout = () => {
           <div className="main_content col-span-9 mt-5 ">
             <Outlet />
           </div>
+        </div>
+      </div>
+
+      <div className="drawer drawer-mobile lg:hidden">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content">
+          {/* <!-- Page content here --> */}
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-primary drawer-button lg:hidden"
+          >
+            Open drawer
+          </label>
+
+          <Outlet />
+        </div>
+        <div className="drawer-side">
+          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+          <ul className="menu w-80 bg-base-100">
+            {/* <!-- Sidebar content here --> */}
+            <NewFeeds />
+            <Account />
+          </ul>
         </div>
       </div>
     </>

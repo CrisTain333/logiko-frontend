@@ -11,7 +11,7 @@ const UserPost = ({ img }) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between">
             <div className="avatar">
-              <div className="w-10 rounded-full">
+              <div className="w-14 shadow-sm rounded-full">
                 <img
                   src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
                   alt=""
@@ -42,7 +42,7 @@ const UserPost = ({ img }) => {
           </div>
         </div>
         {/* user Text  */}
-        <div className="w-[80%] my-5">
+        <div className="w-[90%] my-5">
           <p className=" flex- flex-wrap text-sm text-neutral">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
             inventore neque rem eaque, tempore blanditiis.
@@ -50,9 +50,11 @@ const UserPost = ({ img }) => {
         </div>
 
         {/* user posted Image  */}
-        <div className="rounded-xl">
-          <img src={img} className="rounded-xl" alt="" />
-        </div>
+        {img ? (
+          <div className="rounded-xl">
+            <img src={img} className="rounded-xl" alt="" />
+          </div>
+        ) : null}
 
         {/* Action div */}
         <div className="flex items-center justify-between mt-5 mx-5">
