@@ -11,7 +11,7 @@ const UserPost = ({ img }) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between">
             <div className="avatar">
-              <div className="w-10 rounded-full">
+              <div className="w-14 shadow-sm rounded-full">
                 <img
                   src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
                   alt=""
