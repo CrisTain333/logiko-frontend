@@ -1,4 +1,5 @@
 import React from "react";
+import FriendsCard from "../../components/FriendsCard/FriendsCard";
 
 const Friends = () => {
   return (
@@ -36,7 +37,20 @@ const Friends = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 mt-10">{/* user Friend Card */}</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-x-5 gap-y-6 mr-5">
+          {/* user Friend Card */}
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+          <FriendsCard />
+        </div>
       </div>
     </div>
   );
