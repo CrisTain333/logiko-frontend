@@ -18,7 +18,7 @@ const Home = () => {
           <div className="col-span-12 lg:col-span-8 ">
             {/* ----- Main Content DIV ------ */}
             <div className="space-y-5">
-              <div className="reals_div flex overflow-x-scroll example space-x-3">
+              <div className="reals_div flex overflow-x-scroll example space-x-3 w-[95%] mx-auto">
                 {/* add story */}
                 <div>
                   <div>
