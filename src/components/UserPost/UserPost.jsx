@@ -42,7 +42,7 @@ const UserPost = ({ img }) => {
           </div>
         </div>
         {/* user Text  */}
-        <div className="w-[80%] my-5">
+        <div className="w-[90%] my-5">
           <p className=" flex- flex-wrap text-sm text-neutral">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
             inventore neque rem eaque, tempore blanditiis.
