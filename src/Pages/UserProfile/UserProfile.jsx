@@ -24,7 +24,7 @@ const UserProfile = () => {
                 <div className="outline outline-4 outline-base-200 rounded-full">
                   <img
                     className="object-cover w-32 h-32   lg:w-32 lg:h-32 rounded-full"
-                    src="https://images.unsplash.com/photo-1574701148212-8518049c7b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJldHR5JTIwZ2lybHxlbnwwfHwwfHw%3D&w=1000&q=80"
+                    src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
                     alt=""
                   />
                 </div>
@@ -71,11 +71,11 @@ const UserProfile = () => {
       </div>
 
       {/* user about and post Main div  */}
-      <div className="user_about_div mr-8 mt-10">
+      <div className="user_about_div lg:mr-8 mt-10">
         {/* main_DIV */}
-        <div className="grid grid-cols-12 space-x-3">
+        <div className="grid grid-cols-12 lg:space-x-3">
           {/* user About */}
-          <div className="col-span-4">
+          <div className="col-span-12 w-[95%]  mx-auto lg:col-span-4">
             <div className="p-5 rounded-lg bg-base-200 shadow-md ">
               {/* user Bio  */}
               <div>
@@ -146,7 +146,7 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-8">
+          <div className="col-span-12 w-[95%] mx-auto mt-8 lg:mt-0">
             <div className="mb-5">
               <CreatePost />
             </div>
