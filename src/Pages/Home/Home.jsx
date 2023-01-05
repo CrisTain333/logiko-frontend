@@ -84,11 +84,14 @@ const Home = () => {
                 />
               </div>
               {/* Create Post */}
-              <CreatePost />
+              <div className="w-[95%] mx-auto">
+                <CreatePost />
+              </div>
 
               {/* User Post  */}
               <div className="w-[95%] mx-auto space-y-5 ">
                 <UserPost img={userPost1} />
+                <UserPost img={userPost2} />
                 <UserPost img={userpost3} />
                 <UserPost />
               </div>
