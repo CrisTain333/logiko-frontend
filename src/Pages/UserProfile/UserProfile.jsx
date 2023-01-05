@@ -9,52 +9,64 @@ const UserProfile = () => {
   return (
     <div>
       {/*user main Div  */}
-      <div className="shadow-md p-6 rounded-lg mr-8 bg-base-200">
-        {/* cover Image Div */}
-        <div className="relative">
-          <img
-            className="rounded-lg"
-            src="https://i.ibb.co/3cV8HR6/attachment1.png"
-            alt=""
-          />
+      <div className="">
+        <div className="shadow-md p-2 lg:p-6 rounded-lg  lg:mr-8 bg-base-200 w-[95%] mx-auto">
+          {/* cover Image Div */}
+          <div className="relative">
+            <img
+              className="rounded-lg h-44 lg:h-80 w-full object-cover"
+              src="https://wallpapercave.com/wp/wp11526112.jpg"
+              alt=""
+            />
 
-          <div className="absolute bottom-[-6rem] left-10">
-            <div className="flex items-end space-x-5">
-              <div className="outline outline-4 outline-base-200 rounded-full">
-                <img
-                  className="object-cover w-32 h-32 rounded-full"
-                  src="https://images.unsplash.com/photo-1574701148212-8518049c7b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJldHR5JTIwZ2lybHxlbnwwfHwwfHw%3D&w=1000&q=80"
-                  alt=""
-                />
-              </div>
-              <div className="pb-5">
-                <p className="text-2xl text-base-900 font-bold">Cristain</p>
-                <p className="text-sm text-base-900">
-                  400 Friends <span className="font-extrabold">•</span> 1.2k
-                  Followers
-                </p>
+            <div className="absolute bottom-[-4rem]   lg:bottom-[-6rem] left-[5%]  lg:left-10">
+              <div className="flex items-end space-x-5">
+                <div className="outline outline-4 outline-base-200 rounded-full">
+                  <img
+                    className="object-cover w-32 h-32   lg:w-32 lg:h-32 rounded-full"
+                    src="https://images.unsplash.com/photo-1574701148212-8518049c7b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJldHR5JTIwZ2lybHxlbnwwfHwwfHw%3D&w=1000&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="pb-5 hidden lg:block">
+                  <p className="text-2xl text-base-900 font-bold">Cristain</p>
+                  <p className="text-sm text-base-900">
+                    400 Friends <span className="font-extrabold">•</span> 1.2k
+                    Followers
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Links DIV  */}
-        <div className="mt-28">
-          <div className="divider mt-0"></div>
-          <ul className="flex space-x-6">
-            <li className="text-base text-base-900 font-semibold cursor-pointer">
-              About
-            </li>
-            <li className="text-base text-neutral font-semibold cursor-pointer">
-              Friends
-            </li>
-            <li className="text-base text-neutral font-semibold cursor-pointer">
-              Photos
-            </li>
-            <li className="text-base text-neutral font-semibold cursor-pointer">
-              Group
-            </li>
-          </ul>
+          <div className="mt-16 lg:hidden ">
+            <div className="ml-5 ">
+              <p className="text-2xl text-base-900 font-bold">Cristain</p>
+              <p className="text-sm text-base-900">
+                400 Friends <span className="font-extrabold">•</span> 1.2k
+                Followers
+              </p>
+            </div>
+          </div>
+
+          {/* Links DIV  */}
+          <div className="mt-4 lg:mt-28">
+            <div className="divider mt-0"></div>
+            <ul className="flex space-x-6">
+              <li className="text-base text-base-900 font-semibold cursor-pointer">
+                About
+              </li>
+              <li className="text-base text-neutral font-semibold cursor-pointer">
+                Friends
+              </li>
+              <li className="text-base text-neutral font-semibold cursor-pointer">
+                Photos
+              </li>
+              <li className="text-base text-neutral font-semibold cursor-pointer">
+                Group
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
