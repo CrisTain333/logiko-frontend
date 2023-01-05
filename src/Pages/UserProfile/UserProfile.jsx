@@ -146,7 +146,7 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-12 w-[95%] mx-auto mt-8 lg:mt-0">
+          <div className="col-span-12 lg:col-span-8 w-[95%] mx-auto mt-8 lg:mt-0">
             <div className="mb-5">
               <CreatePost />
             </div>
