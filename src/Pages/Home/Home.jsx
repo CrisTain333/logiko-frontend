@@ -15,10 +15,10 @@ const Home = () => {
       <div>
         <div className="grid grid-cols-12 gap-4">
           {/* newsFeed */}
-          <div className="col-span-8">
+          <div className="col-span-12 lg:col-span-8 ">
             {/* ----- Main Content DIV ------ */}
             <div className="space-y-5">
-              <div className="reals_div flex overflow-x-scroll example space-x-3">
+              <div className="reals_div flex overflow-x-scroll example space-x-3 w-[95%] mx-auto">
                 {/* add story */}
                 <div>
                   <div>
@@ -84,17 +84,22 @@ const Home = () => {
                 />
               </div>
               {/* Create Post */}
-              <CreatePost />
+              <div className="w-[95%] mx-auto">
+                <CreatePost />
+              </div>
 
               {/* User Post  */}
-              <UserPost img={userPost1} />
-              <UserPost img={userPost2} />
-              <UserPost />
+              <div className="w-[95%] mx-auto space-y-5 ">
+                <UserPost img={userPost1} />
+                <UserPost img={userPost2} />
+                <UserPost img={userpost3} />
+                <UserPost />
+              </div>
             </div>
           </div>
 
           {/* rightSide component */}
-          <div className="col-span-4">
+          <div className="col-span-4 hidden lg:block">
             <div className="bg-base-200 rounded-xl shadow-md w-[90%] py-5 px-4">
               <div>
                 <div className="flex items-center justify-between px-2">

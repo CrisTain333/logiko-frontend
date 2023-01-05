@@ -28,7 +28,7 @@ const MainLayout = () => {
           {/* <!-- Page content here --> */}
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
+            className="btn btn-primary drawer-button"
           >
             Open drawer
           </label>
