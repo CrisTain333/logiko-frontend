@@ -66,7 +66,9 @@ const UserPost = ({ img }) => {
                 className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
                 alt=""
               />
-              <p className="ml-2 text-sm font-bold text-base-900">2.6k like</p>
+              <p className="ml-2 text-sm font-bold text-base-900">
+                2.6k <span className="hidden lg:block">like</span>
+              </p>
             </div>
             {/* comment div */}
             <div className="flex items-center justify-between ml-5">
@@ -84,7 +86,9 @@ const UserPost = ({ img }) => {
                   d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"
                 />
               </svg>
-              <p className="ml-2 text-sm font-bold text-base-900">22 Comment</p>
+              <p className="ml-2 text-sm font-bold text-base-900">
+                22 <span className="hidden lg:block ">Comment</span>
+              </p>
             </div>
           </div>
           {/* share div  */}
