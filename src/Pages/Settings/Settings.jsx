@@ -1,9 +1,31 @@
 import React from "react";
+import homeIcon from "../../assets/Icons/home.png";
 
 const Settings = () => {
   return (
     <div>
-      <p>Settings page added</p>
+      {/* main div  */}
+      <div className="shadow-md p-2 lg:p-8 rounded-lg  mx-auto bg-base-200 w-[80%] ">
+        <p className="text-2xl font-bold text-base-900">Settings</p>
+
+        {/* Links Div  */}
+        <div className="my-14">
+          <div className="links_div">
+            <p className="text-sm text-neutral font-medium">General</p>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-center">
+              <img src={homeIcon} alt="" className="h-9 w-9" />
+              <span className="text-sm font-semibold ml-5">
+                Account Information
+              </span>
+            </div>
+
+            <hr />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
