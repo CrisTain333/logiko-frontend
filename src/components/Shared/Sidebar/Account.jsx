@@ -2,6 +2,7 @@ import React from "react";
 import settingIcon from "../../../assets/Icons/settings.png";
 import dataIcon from "../../../assets/Icons/data-analytics.png";
 import logOut from "../../../assets/Icons/logout.png";
+import { Link } from "react-router-dom";
 
 const Account = () => {
   return (
@@ -23,9 +24,11 @@ const Account = () => {
               <div>
                 <img src={settingIcon} alt="" className="h-7 w-7" />
               </div>
-              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Setting
-              </span>
+              <Link to="/settings">
+                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Setting
+                </span>
+              </Link>
             </div>
             <div className="flex items-center">
               <div>

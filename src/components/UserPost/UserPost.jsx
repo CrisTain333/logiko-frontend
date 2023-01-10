@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import userPostImage from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
 import heartIcon from "../../assets/Icons/heart.png";
 
 const UserPost = ({ img }) => {
+  const [liked, setLiked] = useState(0);
+
   return (
     <div className="bg-base-200 rounded-xl shadow-md  p-6">
       {/* main div */}
