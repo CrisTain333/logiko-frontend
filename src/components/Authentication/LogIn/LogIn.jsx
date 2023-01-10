@@ -1,4 +1,3 @@
-import loginImage from "../../../assets/images/login.jpg";
 import logo from "../../../assets/Icons/logiko-without-bg.png";
 import { Link } from "react-router-dom";
 const LogIn = () => {
