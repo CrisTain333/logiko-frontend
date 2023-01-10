@@ -14,10 +14,10 @@ const Settings = () => {
             <p className="text-sm text-neutral font-medium">General</p>
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center  mt-5">
             <div className="flex items-center justify-center">
               <img src={homeIcon} alt="" className="h-9 w-9" />
-              <span className="text-sm font-semibold ml-5">
+              <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Account Information
               </span>
             </div>
