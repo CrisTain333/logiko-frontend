@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import LogIn from "../components/Authentication/LogIn/LogIn";
 import MainLayout from "../Layout/MainLayout";
-import ComingSoon from "../Pages/ComingSoon/ComingSoon";
 import Friends from "../Pages/Friends/Friends";
 import Home from "../Pages/Home/Home";
 import UserProfile from "../Pages/UserProfile/UserProfile";
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/coming",
-    element: <ComingSoon />,
+    path: "/login",
+    element: <LogIn />,
   },
 ]);
