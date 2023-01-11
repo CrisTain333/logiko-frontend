@@ -13,7 +13,7 @@ const SocialAccount = () => {
             </div>
           </Link>
           <div className="ml-3">
-            <p className="font-bold text-xl">Social Network information</p>
+            <p className="font-bold text-xl">Social Network </p>
           </div>
         </div>
 
