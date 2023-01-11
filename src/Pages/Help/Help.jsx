@@ -1,9 +1,10 @@
 import React from "react";
+import ComingSoon from "../ComingSoon/ComingSoon";
 
 const Help = () => {
   return (
     <div>
-      <p>Help Page</p>
+      <ComingSoon />
     </div>
   );
 };
