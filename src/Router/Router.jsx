@@ -4,6 +4,7 @@ import MainLayout from "../Layout/MainLayout";
 import Friends from "../Pages/Friends/Friends";
 import Home from "../Pages/Home/Home";
 import AccountInformation from "../Pages/Settings/AccountInformation/AccountInformation";
+import SavedAddress from "../Pages/Settings/SavedAddress/SavedAddress";
 import Settings from "../Pages/Settings/Settings";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "/settings/account-information",
         element: <AccountInformation />,
+      },
+      {
+        path: "/settings/contact-information",
+        element: <SavedAddress />,
       },
     ],
   },

@@ -34,9 +34,11 @@ const Settings = () => {
           <div className="flex items-center  mt-5">
             <div className="flex items-center justify-center">
               <img src={locationIcon} alt="" className="h-9 w-9" />
-              <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Saved Address
-              </span>
+              <Link to="/settings/contact-information">
+                <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Saved Address
+                </span>
+              </Link>
             </div>
           </div>
           <div className="flex items-center  mt-5">
