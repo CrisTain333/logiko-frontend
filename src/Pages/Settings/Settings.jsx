@@ -33,8 +33,6 @@ const Settings = () => {
                 Saved Address
               </span>
             </div>
-
-            <hr />
           </div>
           <div className="flex items-center  mt-5">
             <div className="flex items-center justify-center">
@@ -43,7 +41,6 @@ const Settings = () => {
                 Social Account
               </span>
             </div>
-
             <hr />
           </div>
         </div>
