@@ -1,4 +1,4 @@
-import comeingImage from "../../assets/images/comeing.png";
+// import comeingImage from "../../assets/images/comeing.png";
 
 const ComingSoon = () => {
   return (
@@ -20,13 +20,13 @@ const ComingSoon = () => {
               </div>
             </div>
           </div>
-          <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
+          {/* <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
             <img
               className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full"
               src={comeingImage}
               alt=""
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

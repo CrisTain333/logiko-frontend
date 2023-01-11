@@ -56,9 +56,11 @@ const NewFeeds = () => {
               <div>
                 <img src={chatIcon} alt="" className="h-7 w-7" />
               </div>
-              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Chat
-              </span>
+              <Link to="/chat">
+                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Chat
+                </span>
+              </Link>
             </div>
           </div>
         </div>
