@@ -44,9 +44,11 @@ const Settings = () => {
           <div className="flex items-center  mt-5">
             <div className="flex items-center justify-center">
               <img src={socialIcon} alt="" className="h-9 w-9" />
-              <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Social Account
-              </span>
+              <Link to="/settings/social-account">
+                <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Social Account
+                </span>
+              </Link>
             </div>
             <hr />
           </div>

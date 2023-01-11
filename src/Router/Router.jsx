@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import AccountInformation from "../Pages/Settings/AccountInformation/AccountInformation";
 import SavedAddress from "../Pages/Settings/SavedAddress/SavedAddress";
 import Settings from "../Pages/Settings/Settings";
+import SocialAccount from "../Pages/Settings/SocialAccount/SocialAccount";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/settings/contact-information",
         element: <SavedAddress />,
+      },
+      {
+        path: "/settings/social-account",
+        element: <SocialAccount />,
       },
     ],
   },
