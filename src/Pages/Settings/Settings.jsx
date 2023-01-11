@@ -1,5 +1,7 @@
 import React from "react";
 import homeIcon from "../../assets/Icons/home.png";
+import locationIcon from "../../assets/Icons/placeholder.png";
+import socialIcon from "../../assets/Icons/social-media.png";
 
 const Settings = () => {
   return (
@@ -19,6 +21,26 @@ const Settings = () => {
               <img src={homeIcon} alt="" className="h-9 w-9" />
               <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Account Information
+              </span>
+            </div>
+
+            <hr />
+          </div>
+          <div className="flex items-center  mt-5">
+            <div className="flex items-center justify-center">
+              <img src={locationIcon} alt="" className="h-9 w-9" />
+              <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                Saved Address
+              </span>
+            </div>
+
+            <hr />
+          </div>
+          <div className="flex items-center  mt-5">
+            <div className="flex items-center justify-center">
+              <img src={socialIcon} alt="" className="h-9 w-9" />
+              <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                Social Account
               </span>
             </div>
 
