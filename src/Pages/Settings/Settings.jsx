@@ -13,7 +13,7 @@ const Settings = () => {
         <p className="text-2xl font-bold text-base-900">Settings</p>
 
         {/* Links Div  */}
-        <div className="my-14">
+        <div className="my-10">
           <div className="links_div">
             <p className="text-sm text-neutral font-medium">General</p>
           </div>
@@ -47,7 +47,7 @@ const Settings = () => {
           </div>
         </div>
 
-        <div className="my-14">
+        <div className="mt-10">
           <div className="links_div">
             <p className="text-sm text-neutral font-medium">Account</p>
           </div>

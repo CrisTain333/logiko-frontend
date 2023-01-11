@@ -1,6 +1,6 @@
 import React from "react";
 import newsFeed from "../../../assets/Icons/newsfeed.png";
-import storyIcon from "../../../assets/Icons/instagram-stories.png";
+// import storyIcon from "../../../assets/Icons/instagram-stories.png";
 import friends from "../../../assets/Icons/friends.png";
 import userIcon from "../../../assets/Icons/user.png";
 import chatIcon from "../../../assets/Icons/chat.png";
