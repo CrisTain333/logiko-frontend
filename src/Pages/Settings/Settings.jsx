@@ -4,6 +4,7 @@ import locationIcon from "../../assets/Icons/placeholder.png";
 import socialIcon from "../../assets/Icons/social-media.png";
 import myCard from "../../assets/Icons/credit-card.png";
 import passwordIcon from "../../assets/Icons/lock.png";
+import { Link } from "react-router-dom";
 
 const Settings = () => {
   return (
@@ -21,9 +22,11 @@ const Settings = () => {
           <div className="flex items-center  mt-5">
             <div className="flex items-center justify-center">
               <img src={homeIcon} alt="" className="h-9 w-9" />
-              <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Account Information
-              </span>
+              <Link to="/settings/account-information">
+                <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Account Information
+                </span>
+              </Link>
             </div>
 
             <hr />
