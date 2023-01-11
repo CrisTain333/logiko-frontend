@@ -1,5 +1,9 @@
 import React from "react";
 import homeIcon from "../../assets/Icons/home.png";
+import locationIcon from "../../assets/Icons/placeholder.png";
+import socialIcon from "../../assets/Icons/social-media.png";
+import passwordIcon from "../../assets/Icons/lock.png";
+import { Link } from "react-router-dom";
 
 const Settings = () => {
   return (
@@ -9,7 +13,7 @@ const Settings = () => {
         <p className="text-2xl font-bold text-base-900">Settings</p>
 
         {/* Links Div  */}
-        <div className="my-14">
+        <div className="my-10">
           <div className="links_div">
             <p className="text-sm text-neutral font-medium">General</p>
           </div>
@@ -17,9 +21,44 @@ const Settings = () => {
           <div className="flex items-center  mt-5">
             <div className="flex items-center justify-center">
               <img src={homeIcon} alt="" className="h-9 w-9" />
-              <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Account Information
-              </span>
+              <Link to="/settings/account-information">
+                <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Account Information
+                </span>
+              </Link>
+            </div>
+
+            <hr />
+          </div>
+          <div className="flex items-center  mt-5">
+            <div className="flex items-center justify-center">
+              <img src={locationIcon} alt="" className="h-9 w-9" />
+              <Link to="/settings/contact-information">
+                <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Saved Address
+                </span>
+              </Link>
+            </div>
+          </div>
+          <div className="flex items-center  mt-5">
+            <div className="flex items-center justify-center">
+              <img src={socialIcon} alt="" className="h-9 w-9" />
+              <Link to="/settings/social-account">
+                <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Social Account
+                </span>
+              </Link>
+            </div>
+            <hr />
+          </div>
+          <div className="flex items-center  mt-5">
+            <div className="flex items-center justify-center">
+              <img src={passwordIcon} alt="" className="h-9 w-9" />
+              <Link to="/settings/change-password">
+                <span className="text-sm font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Password
+                </span>
+              </Link>
             </div>
 
             <hr />

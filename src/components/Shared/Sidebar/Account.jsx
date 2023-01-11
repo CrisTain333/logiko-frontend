@@ -1,6 +1,6 @@
 import React from "react";
 import settingIcon from "../../../assets/Icons/settings.png";
-import dataIcon from "../../../assets/Icons/data-analytics.png";
+import helpIcon from "../../../assets/Icons/question-mark.png";
 import logOut from "../../../assets/Icons/logout.png";
 import { Link } from "react-router-dom";
 
@@ -14,11 +14,13 @@ const Account = () => {
             {/* Links */}
             <div className="flex items-center">
               <div>
-                <img src={dataIcon} alt="" className="h-7 w-7" />
+                <img src={helpIcon} alt="" className="h-7 w-7" />
               </div>
-              <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                Analytical
-              </span>
+              <Link to="/help">
+                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Help
+                </span>
+              </Link>
             </div>
             <div className="flex items-center">
               <div>
