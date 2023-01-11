@@ -34,14 +34,14 @@ const NewFeeds = () => {
                 </span>
               </Link>
             </div>
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <div>
                 <img src={storyIcon} alt="" className="h-7 w-7" />
               </div>
               <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                 Explore Stories
               </span>
-            </div>
+            </div> */}
             <div className="flex items-center">
               <div>
                 <img src={friends} alt="" className="h-7 w-7" />
