@@ -20,7 +20,7 @@ const NewFeeds = () => {
               </div>
               <Link to="/user-profile">
                 <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                  User Profile
+                  Profile
                 </span>
               </Link>
             </div>
