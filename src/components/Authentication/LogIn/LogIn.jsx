@@ -44,16 +44,12 @@ const LogIn = () => {
                   value="Login"
                 />
               </form>
-              <Link to="/passwordreset">
+              <Link to="/passwordReset">
                 <p className="text-primary underline ">Forgot Password ? </p>
               </Link>
               <p className="text-xs text-center sm:px-6 py-2 text-base-900 my-3">
-                Dont have an account?
-                <Link
-                  rel="noopener noreferrer"
-                  to="/singup"
-                  className="underline text-primary px-2"
-                >
+                Don't have an account?
+                <Link to="/signup" className="underline text-primary px-2">
                   Sign Up
                 </Link>
               </p>
