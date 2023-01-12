@@ -60,46 +60,43 @@ const SignUp = () => {
                           className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
                           htmlFor="country"
                         >
-                          Country
+                          Gender
                         </label>
-                        <input
-                          className="appearance-none block w-full  text-black font-medium border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
-                          id="grid-first-name"
-                          type="text"
-                        />
+                        <select
+                          name=""
+                          className="border p-2 w-full text-black font-medium"
+                        >
+                          <option value="Male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
                       </div>
                       <div className="w-full md:w-1/2 px-3">
                         <label
                           className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                          htmlFor="town/city"
+                          htmlFor="grid-number"
                         >
-                          Town/City
+                          Phone Number
                         </label>
                         <input
-                          className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  "
-                          id="grid-email"
-                          type="text"
+                          className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  "
+                          id="grid-number"
+                          type="Number"
                         />
                       </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-6">
                       <div className="w-full px-3">
                         <label
-                          className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                          htmlFor="grid-password"
+                          class="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
+                          for="file_input"
                         >
-                          Relationship
+                          Profile Picture
                         </label>
-                        <select
-                          name=""
-                          className="border p-2 w-full text-black font-medium"
-                        >
-                          <option value="single">single</option>
-                          <option value="inARelationship">
-                            In a Relationship
-                          </option>
-                          <option value="divorced">Divorced</option>
-                        </select>
+                        <input
+                          type="file"
+                          id="file_input"
+                          className="border p-2"
+                        />
                       </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-2">
@@ -123,7 +120,7 @@ const SignUp = () => {
                           className="w-auto bg-primary text-white py-2 px-5 rounded  transition-all duration-500 text-lg font-semibold"
                           type="submit"
                         >
-                          Save
+                          Create Account
                         </button>
                       </div>
                     </div>
