@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import saveUser from "../../../Helper/saveUser";
 import swal from "sweetalert";
 import smallLoader from "../../../Helper/smallLoader";
+import getToken from "../../../Helper/getToken";
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const { createUser } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const SignUp = () => {
   // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -24,6 +25,10 @@ const SignUp = () => {
     formData.append("image", profilePicture);
     const password = form.password.value;
 
+    const userEmail = {
+      email: email,
+    };
+
     //form validate
     if (password.length < 6) {
       toast.error("password must be at least 6 characters");
@@ -33,8 +38,22 @@ const SignUp = () => {
     }
 
     //create User
+    setLoading(true);
     createUser(email, password)
       .then(async (userCredential) => {
+        // const tokenUri = "http://localhost:8000/api/v1/jwt";
+        // fetch(tokenUri, {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify(userEmail),
+        // })
+        //   .then((res) => res.json())
+        //   .then((token) => {
+        //     console.log(token);
+        //     localStorage.setItem("Token", token);
+        //   });
+        getToken(email);
+
         if (userCredential) {
           //Get Image Url
           const img = await uploadImage(formData);
@@ -71,8 +90,6 @@ const SignUp = () => {
         });
         setLoading(false);
       });
-
-    setLoading(false);
   };
 
   return (
@@ -247,7 +264,6 @@ const SignUp = () => {
                         <button
                           className="w-full bg-primary text-white py-2 px-5 rounded  transition-all duration-500 text-lg font-semibold"
                           type="submit"
-                          disabled={loading ? true : false}
                         >
                           {loading ? smallLoader : "Create Account"}
                           {/* Create Account */}
