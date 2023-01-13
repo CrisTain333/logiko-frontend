@@ -9,7 +9,7 @@ const SignUp = () => {
         {/* left div  */}
         <div>
           <div>
-            <img src={logikoLogo} className="w-[10rem]" alt="" />
+            <img src={logikoLogo} className="w-[10rem] " alt="" />
           </div>
           <div>
             <p className="text-2xl font-medium">
