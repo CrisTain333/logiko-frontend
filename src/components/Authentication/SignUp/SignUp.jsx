@@ -1,16 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import logikoLogo from "../../../assets/Icons/logiko-without-bg.png";
 import { AuthContext } from "../../../context/AuthProvider";
 import uploadImage from "../../../Helper/uploadImage";
 import toast, { Toaster } from "react-hot-toast";
 import saveUser from "../../../Helper/saveUser";
+import swal from "sweetalert";
+import smallLoader from "../../../Helper/smallLoader";
 const SignUp = () => {
-  // const [view, setView] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { createUser } = useContext(AuthContext);
 
   // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -29,15 +32,40 @@ const SignUp = () => {
       toast.error("password is very week");
     }
 
+    //create User
+    createUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        swal({
+          title: "Grate",
+          text: "Account Create Successfully",
+          icon: "success",
+        });
+        setLoading(false);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        swal({
+          title: errorCode,
+          text: errorMessage,
+          icon: "error",
+          button: "ok",
+        });
+        setLoading(false);
+      });
+
     //Get Image Url
-    const img = await uploadImage(formData);
-    const profilePic = img.data.display_url;
+    // const img = await uploadImage(formData);
+    // const profilePic = img.data.display_url;
 
     //save user information
-    if (img.status === 200) {
-      const result = await saveUser(name, email, gender, phone, profilePic);
-      console.log(result);
-    }
+    // if (img.status === 200) {
+    //   const result = await saveUser(name, email, gender, phone, profilePic);
+    //   console.log(result);
+    // }
+    // setLoading(false);
   };
 
   return (
@@ -210,10 +238,12 @@ const SignUp = () => {
                     <div className="flex   -mx-3 mb-6">
                       <div className="w-full flex  justify-center px-3">
                         <button
-                          className="w-auto bg-primary text-white py-2 px-5 rounded  transition-all duration-500 text-lg font-semibold"
+                          className="w-full bg-primary text-white py-2 px-5 rounded  transition-all duration-500 text-lg font-semibold"
                           type="submit"
+                          disabled={loading ? true : false}
                         >
-                          Create Account
+                          {loading ? smallLoader : "Create Account"}
+                          {/* Create Account */}
                         </button>
                       </div>
                     </div>
