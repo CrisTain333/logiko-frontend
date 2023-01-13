@@ -42,12 +42,12 @@ const AccountInformation = () => {
             <div className="flex justify-center  items-center">
               name div
               <div className="w-1/2">
-                <label htmlFor="name">Name</label>
+                <label htmlhtmlFor="name">Name</label>
                 <br />
                 <input type="text" className="border-2" />
               </div>
               <div className="w-1/2">
-                <label htmlFor="email">Email</label>
+                <label htmlhtmlFor="email">Email</label>
                 <br />
                 <input type="email" className="border-2" />
               </div>
@@ -75,7 +75,7 @@ const AccountInformation = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="grid-first-name"
+                      htmlhtmlFor="grid-first-name"
                     >
                       Name
                     </label>
@@ -89,7 +89,7 @@ const AccountInformation = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="grid-email"
+                      htmlhtmlFor="grid-email"
                     >
                       Email
                     </label>
@@ -105,7 +105,7 @@ const AccountInformation = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="country"
+                      htmlhtmlFor="country"
                     >
                       Country
                     </label>
@@ -118,7 +118,7 @@ const AccountInformation = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="town/city"
+                      htmlhtmlFor="town/city"
                     >
                       Town/City
                     </label>
@@ -133,7 +133,7 @@ const AccountInformation = () => {
                   <div className="w-full px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
+                      htmlhtmlFor="grid-password"
                     >
                       Relationship
                     </label>
@@ -151,7 +151,7 @@ const AccountInformation = () => {
                   <div className=" w-full px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="grid-number"
+                      htmlhtmlFor="grid-number"
                     >
                       Phone Number
                     </label>

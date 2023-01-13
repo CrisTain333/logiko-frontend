@@ -25,7 +25,7 @@ const SavedAddress = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="country"
+                      htmlhtmlFor="country"
                     >
                       Country
                     </label>
@@ -37,7 +37,7 @@ const SavedAddress = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="city"
+                      htmlhtmlFor="city"
                     >
                       City
                     </label>
@@ -52,7 +52,7 @@ const SavedAddress = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="Address"
+                      htmlhtmlFor="Address"
                     >
                       Address
                     </label>
@@ -64,7 +64,7 @@ const SavedAddress = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="Pincode"
+                      htmlhtmlFor="Pincode"
                     >
                       Pincode
                     </label>
@@ -78,7 +78,7 @@ const SavedAddress = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="City"
+                      htmlhtmlFor="City"
                     >
                       City
                     </label>
@@ -90,7 +90,7 @@ const SavedAddress = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="State"
+                      htmlhtmlFor="State"
                     >
                       State
                     </label>

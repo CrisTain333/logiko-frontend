@@ -25,7 +25,7 @@ const Password = () => {
                   <div className=" w-full px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="Current Password"
+                      htmlhtmlFor="Current Password"
                     >
                       Current Password
                     </label>
@@ -39,7 +39,7 @@ const Password = () => {
                   <div className=" w-full px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="New Password"
+                      htmlhtmlFor="New Password"
                     >
                       New Password
                     </label>
@@ -53,7 +53,7 @@ const Password = () => {
                   <div className=" w-full px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlFor="Confirm New Password"
+                      htmlhtmlFor="Confirm New Password"
                     >
                       Confirm New Password
                     </label>
