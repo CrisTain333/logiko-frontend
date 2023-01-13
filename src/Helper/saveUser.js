@@ -1,5 +1,3 @@
-import swal from "sweetalert";
-
 const saveUser = async (name, email, gender, phone, img, password) => {
   const data = { name, email, gender, phone, img, password };
   const userEmail = {

@@ -47,7 +47,8 @@ const SignUp = () => {
               email,
               gender,
               phone,
-              profilePic
+              profilePic,
+              password
             );
             if (result.acknowledged) {
               // show success message
