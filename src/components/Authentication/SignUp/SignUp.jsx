@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import logikoLogo from "../../../assets/Icons/logiko-without-bg.png";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
+
   return (
     <div>
       {/* main div  */}
@@ -87,8 +90,8 @@ const SignUp = () => {
                     <div className="flex flex-wrap -mx-3 mb-6">
                       <div className="w-full px-3">
                         <label
-                          class="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                          for="file_input"
+                          className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
+                          htmlFor="file_input"
                         >
                           Profile Picture
                         </label>
