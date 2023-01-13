@@ -1,7 +1,11 @@
 import { createContext, useState } from "react";
 import React from "react";
 import app from "../Firebase/Firebase.config";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 export const AuthContext = createContext();
 
@@ -14,8 +18,18 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  const singOutUser = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+
   return (
-    <AuthContext.Provider value={{ createUser }}>
+    <AuthContext.Provider value={{ createUser, singOutUser }}>
       {children}
     </AuthContext.Provider>
   );
