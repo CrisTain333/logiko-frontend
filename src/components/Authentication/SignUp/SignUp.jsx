@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import logikoLogo from "../../../assets/Icons/logiko-without-bg.png";
 import { AuthContext } from "../../../context/AuthProvider";
 import uploadImage from "../../../Helper/uploadImage";
 import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
-  const [view, setView] = useState(false);
+  // const [view, setView] = useState(false);
   const { createUser } = useContext(AuthContext);
 
   // Handle form submit
@@ -153,7 +153,8 @@ const SignUp = () => {
                             className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  "
                             required
                             name="password"
-                            type={view ? "text" : "password"}
+                            // type={view ? "text" : "password"}
+                            type="password"
                           />
                         </div>
 
