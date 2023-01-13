@@ -34,14 +34,30 @@ const SignUp = () => {
 
     //create User
     createUser(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        swal({
-          title: "Grate",
-          text: "Account Create Successfully",
-          icon: "success",
-        });
+      .then(async (userCredential) => {
+        if (userCredential) {
+          //Get Image Url
+          const img = await uploadImage(formData);
+          const profilePic = img.data.display_url;
+          //save user information
+          if (img.status === 200) {
+            const result = await saveUser(
+              name,
+              email,
+              gender,
+              phone,
+              profilePic
+            );
+            console.log(result);
+
+            // show success message
+            swal({
+              title: "Grate",
+              text: "Account Create Successfully",
+              icon: "success",
+            });
+          }
+        }
         setLoading(false);
       })
       .catch((error) => {
@@ -56,16 +72,7 @@ const SignUp = () => {
         setLoading(false);
       });
 
-    //Get Image Url
-    // const img = await uploadImage(formData);
-    // const profilePic = img.data.display_url;
-
-    //save user information
-    // if (img.status === 200) {
-    //   const result = await saveUser(name, email, gender, phone, profilePic);
-    //   console.log(result);
-    // }
-    // setLoading(false);
+    setLoading(false);
   };
 
   return (
