@@ -4,6 +4,20 @@ import { AuthContext } from "../../../context/AuthProvider";
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const gender = form.gender.value;
+    const phone = form.phone.value;
+    const profilePicture = form.profilePicture.files[0];
+    const formData = new FormData();
+    formData.append("image", profilePicture);
+    const password = form.password.value;
+
+    console.log(name, email, gender, phone, password, profilePicture);
+  };
 
   return (
     <div>
@@ -27,7 +41,7 @@ const SignUp = () => {
             <div className="user_info flex items-center justify-center">
               <div>
                 <div className="container mx-auto p-2">
-                  <form className="w-full max-w-lg">
+                  <form className="w-full max-w-lg" onSubmit={handleSubmit}>
                     <div className="flex flex-wrap -mx-3 mb-6">
                       <div className="w-full md:w-1/2 px-3 mb-0  ">
                         <label
@@ -38,7 +52,7 @@ const SignUp = () => {
                         </label>
                         <input
                           className="appearance-none block w-full  text-black font-medium border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
-                          id="grid-first-name"
+                          name="name"
                           type="text"
                           placeholder="Jane"
                         />
@@ -53,6 +67,7 @@ const SignUp = () => {
                         <input
                           className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none  "
                           id="grid-email"
+                          name="email"
                           type="email"
                         />
                       </div>
@@ -66,7 +81,7 @@ const SignUp = () => {
                           Gender
                         </label>
                         <select
-                          name=""
+                          name="gender"
                           className="border p-2 w-full text-black font-medium"
                         >
                           <option value="Male">Male</option>
@@ -82,7 +97,7 @@ const SignUp = () => {
                         </label>
                         <input
                           className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  "
-                          id="grid-number"
+                          name="phone"
                           type="Number"
                         />
                       </div>
@@ -98,6 +113,7 @@ const SignUp = () => {
                         <input
                           type="file"
                           id="file_input"
+                          name="profilePicture"
                           className="border p-2"
                         />
                       </div>
@@ -108,12 +124,12 @@ const SignUp = () => {
                           className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
                           htmlFor="grid-number"
                         >
-                          Phone Number
+                          Password
                         </label>
                         <input
                           className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  "
-                          id="grid-number"
-                          type="Number"
+                          name="password"
+                          type="password"
                         />
                       </div>
                     </div>
