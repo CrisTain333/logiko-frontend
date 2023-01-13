@@ -25,7 +25,7 @@ const SocialAccount = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlhtmlFor="facebook"
+                      htmlFor="facebook"
                     >
                       Facebook
                     </label>
@@ -37,7 +37,7 @@ const SocialAccount = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlhtmlFor="Twitter"
+                      htmlFor="Twitter"
                     >
                       Twitter
                     </label>
@@ -52,7 +52,7 @@ const SocialAccount = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlhtmlFor="Instagram"
+                      htmlFor="Instagram"
                     >
                       Instagram
                     </label>
@@ -64,7 +64,7 @@ const SocialAccount = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlhtmlFor="Github"
+                      htmlFor="Github"
                     >
                       Github
                     </label>
@@ -78,7 +78,7 @@ const SocialAccount = () => {
                   <div className="w-full md:w-1/2 px-3 mb-0  ">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlhtmlFor="Linkedin"
+                      htmlFor="Linkedin"
                     >
                       Linkedin
                     </label>
@@ -90,7 +90,7 @@ const SocialAccount = () => {
                   <div className="w-full md:w-1/2 px-3">
                     <label
                       className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                      htmlhtmlFor="Skype"
+                      htmlFor="Skype"
                     >
                       Skype
                     </label>

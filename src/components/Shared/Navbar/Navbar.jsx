@@ -16,7 +16,7 @@ const Navbar = () => {
           </div>
           <div className="col-span-9 flex items-center justify-between">
             <div>
-              <label htmlhtmlFor="simple-search" className="sr-only">
+              <label htmlFor="simple-search" className="sr-only">
                 Search
               </label>
               <div className="relative w-[38rem]">

@@ -27,7 +27,7 @@ const MainLayout = () => {
         <div className="drawer-content">
           {/* <!-- Page content here --> */}
           <label
-            htmlhtmlFor="my-drawer-2"
+            htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button"
           >
             Open drawer
@@ -36,7 +36,7 @@ const MainLayout = () => {
           <Outlet />
         </div>
         <div className="drawer-side">
-          <label htmlhtmlFor="my-drawer-2" className="drawer-overlay"></label>
+          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu w-80 bg-base-100">
             {/* <!-- Sidebar content here --> */}
             <NewFeeds />
