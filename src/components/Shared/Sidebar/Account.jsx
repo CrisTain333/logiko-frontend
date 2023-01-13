@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import settingIcon from "../../../assets/Icons/settings.png";
 import helpIcon from "../../../assets/Icons/question-mark.png";
 import logOut from "../../../assets/Icons/logout.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Account = () => {
+  const { singOutUser } = useContext(AuthContext);
   return (
     <div>
       <div className="shadow-md mt-5 rounded-xl py-5 px-4 bg-base-200 w-[80%] mx-auto">
@@ -32,7 +34,7 @@ const Account = () => {
                 </span>
               </Link>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center" onClick={() => singOutUser()}>
               <div>
                 <img src={logOut} alt="" className="h-7 w-7" />
               </div>
