@@ -3,7 +3,7 @@ import logikoLogo from "../../../assets/Icons/logiko-without-bg.png";
 import { AuthContext } from "../../../context/AuthProvider";
 import uploadImage from "../../../Helper/uploadImage";
 import toast, { Toaster } from "react-hot-toast";
-
+import saveUser from "../../../Helper/saveUser";
 const SignUp = () => {
   // const [view, setView] = useState(false);
   const { createUser } = useContext(AuthContext);
@@ -31,8 +31,13 @@ const SignUp = () => {
 
     //Get Image Url
     const img = await uploadImage(formData);
-    console.log(img.data.display_url);
-    console.log(img.status);
+    const profilePic = img.data.display_url;
+
+    //save user information
+    if (img.status === 200) {
+      const result = await saveUser(name, email, gender, phone, profilePic);
+      console.log(result);
+    }
   };
 
   return (
