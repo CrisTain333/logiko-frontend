@@ -6,7 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 import saveUser from "../../../Helper/saveUser";
 import swal from "sweetalert";
 import smallLoader from "../../../Helper/smallLoader";
-import getToken from "../../../Helper/getToken";
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const { createUser } = useContext(AuthContext);
@@ -25,10 +24,6 @@ const SignUp = () => {
     formData.append("image", profilePicture);
     const password = form.password.value;
 
-    const userEmail = {
-      email: email,
-    };
-
     //form validate
     if (password.length < 6) {
       toast.error("password must be at least 6 characters");
@@ -41,19 +36,6 @@ const SignUp = () => {
     setLoading(true);
     createUser(email, password)
       .then(async (userCredential) => {
-        // const tokenUri = "http://localhost:8000/api/v1/jwt";
-        // fetch(tokenUri, {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(userEmail),
-        // })
-        //   .then((res) => res.json())
-        //   .then((token) => {
-        //     console.log(token);
-        //     localStorage.setItem("Token", token);
-        //   });
-        getToken(email);
-
         if (userCredential) {
           //Get Image Url
           const img = await uploadImage(formData);
@@ -67,14 +49,14 @@ const SignUp = () => {
               phone,
               profilePic
             );
-            console.log(result);
-
-            // show success message
-            swal({
-              title: "Grate",
-              text: "Account Create Successfully",
-              icon: "success",
-            });
+            if (result.acknowledged) {
+              // show success message
+              swal({
+                title: "Grate",
+                text: "Account Create Successfully",
+                icon: "success",
+              });
+            }
           }
         }
         setLoading(false);
