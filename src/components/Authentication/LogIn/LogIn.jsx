@@ -1,5 +1,5 @@
 import logo from "../../../assets/Icons/logiko-without-bg.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import getJwt from "../../../Helper/getJwt";
@@ -8,6 +8,10 @@ import smallLoader from "../../../Helper/smallLoader";
 const LogIn = () => {
   const [loading, setLoading] = useState(false);
   const { loginUser } = useContext(AuthContext);
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   //handle login
   const handleLogin = (e) => {
@@ -28,6 +32,7 @@ const LogIn = () => {
           icon: "success",
         });
         setLoading(false);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;

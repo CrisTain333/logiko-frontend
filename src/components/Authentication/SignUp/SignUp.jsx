@@ -6,9 +6,14 @@ import toast, { Toaster } from "react-hot-toast";
 import saveUser from "../../../Helper/saveUser";
 import swal from "sweetalert";
 import smallLoader from "../../../Helper/smallLoader";
+import { useLocation, useNavigate } from "react-router-dom";
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const { createUser } = useContext(AuthContext);
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   // Handle form submit
   const handleSubmit = async (e) => {
@@ -57,6 +62,7 @@ const SignUp = () => {
                 text: "Account Create Successfully",
                 icon: "success",
               });
+              navigate(from, { replace: true });
             }
           }
         }
