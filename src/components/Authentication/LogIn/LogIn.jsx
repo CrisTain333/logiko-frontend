@@ -1,22 +1,47 @@
 import logo from "../../../assets/Icons/logiko-without-bg.png";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import getJwt from "../../../Helper/getJwt";
+import swal from "sweetalert";
+import smallLoader from "../../../Helper/smallLoader";
 const LogIn = () => {
+  const [loading, setLoading] = useState(false);
   const { loginUser } = useContext(AuthContext);
 
   //handle login
   const handleLogin = (e) => {
+    setLoading(true);
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    loginUser(email, password).then((userCredential) => {
-      const email = userCredential.user.email;
-      getJwt(email);
-    });
+    loginUser(email, password)
+      .then((userCredential) => {
+        const email = userCredential.user.email;
+        getJwt(email);
+        // show success message
+        swal({
+          title: "Grate",
+          text: "Login Successfully",
+          icon: "success",
+        });
+        setLoading(false);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        // show error message
+        swal({
+          title: errorCode,
+          text: errorMessage,
+          icon: "error",
+          button: "ok",
+        });
+        setLoading(false);
+      });
   };
 
   return (
@@ -56,11 +81,13 @@ const LogIn = () => {
                     required
                   />
                 </div>
-                <input
+                {/* <input value="Login" /> */}
+                <button
                   type="submit"
                   className="bg-primary  text-white uppercase text-sm font-semibold px-4 py-2 rounded w-full"
-                  value="Login"
-                />
+                >
+                  {loading ? smallLoader : "Login"}
+                </button>
               </form>
               <Link to="/passwordReset">
                 <p className="text-primary underline ">Forgot Password ? </p>
