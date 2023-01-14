@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="h-1/2 w-full flex justify-center items-center mt-20">
+      <div className="h-3/4 w-full flex justify-center items-center mt-20">
         <ThreeCircles
           height="150"
           width="150"

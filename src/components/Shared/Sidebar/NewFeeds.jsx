@@ -15,8 +15,13 @@ const NewFeeds = () => {
           <div className="mt-5 space-y-4">
             {/* Links */}
             <div className="flex items-center">
-              <div>
-                <img src={userIcon} alt="" className="h-7 w-7" />
+              <div className="avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
+                    alt=""
+                  />
+                </div>
               </div>
               <Link to="/user-profile">
                 <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
