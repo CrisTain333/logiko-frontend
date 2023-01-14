@@ -14,7 +14,7 @@ const saveUser = async (name, email, gender, phone, img, password) => {
     .then((res) => res.json())
     .then((token) => {
       console.log(token);
-      localStorage.setItem("LogikoAuthToken", token);
+      localStorage.setItem("AuthToken", token);
     });
 
   // save user in dataBase
