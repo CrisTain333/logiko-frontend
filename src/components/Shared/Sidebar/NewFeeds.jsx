@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import newsFeed from "../../../assets/Icons/newsfeed.png";
 // import storyIcon from "../../../assets/Icons/instagram-stories.png";
 import friends from "../../../assets/Icons/friends.png";
 import userIcon from "../../../assets/Icons/user.png";
 import chatIcon from "../../../assets/Icons/chat.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
+import getUser from "../../../Helper/getUser";
 
-const NewFeeds = () => {
+const NewFeeds = async () => {
+  const { user } = useContext(AuthContext);
+  const getUserInformation = await getUser(user.email);
+  console.log(getUserInformation);
+
   return (
     <>
       <div className="shadow-md mt-5 rounded-xl py-5 px-4 bg-base-200 w-[80%] mx-auto">
