@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import userIcon from "../../assets/Icons/user.png";
 import PostModal from "./PostModal";
 
-const CreatePost = () => {
+const CreatePost = ({ userProfilePic }) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <div className="bg-base-200 rounded-xl shadow-md space-y-4 p-6">
@@ -25,6 +25,11 @@ const CreatePost = () => {
       </div>
       <div>
         <div className="w-auto space-x-3 flex items-center">
+          {/* <div className="avatar">
+            <div className="w-10 rounded-full">
+              <img src={userProfilePic} alt="" />
+            </div>
+          </div> */}
           <img src={userIcon} alt="" className="h-9 w-9" />
           <input
             onClick={() => setShowModal(true)}

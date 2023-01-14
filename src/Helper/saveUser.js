@@ -1,5 +1,5 @@
-const saveUser = async (name, email, gender, phone, img, password) => {
-  const data = { name, email, gender, phone, img, password };
+const saveUser = async (name, email, gender, img, password, username) => {
+  const data = { name, email, gender, img, password, username };
   const userEmail = {
     Email: data.email,
   };

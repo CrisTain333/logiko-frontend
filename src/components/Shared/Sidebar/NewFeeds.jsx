@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import newsFeed from "../../../assets/Icons/newsfeed.png";
 // import storyIcon from "../../../assets/Icons/instagram-stories.png";
 import friends from "../../../assets/Icons/friends.png";
-import userIcon from "../../../assets/Icons/user.png";
+// import userIcon from "../../../assets/Icons/user.png";
 import chatIcon from "../../../assets/Icons/chat.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const NewFeeds = () => {
+  const [getUser, setGetUser] = useState([]);
+  const { user } = useContext(AuthContext);
+  useEffect(() => {
+    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setGetUser(data);
+      });
+  }, [user?.email]);
+
   return (
     <>
       <div className="shadow-md mt-5 rounded-xl py-5 px-4 bg-base-200 w-[80%] mx-auto">
@@ -15,10 +26,12 @@ const NewFeeds = () => {
           <div className="mt-5 space-y-4">
             {/* Links */}
             <div className="flex items-center">
-              <div>
-                <img src={userIcon} alt="" className="h-7 w-7" />
+              <div className="avatar">
+                <div className="w-7 rounded-full">
+                  <img src={getUser?.profilePic} alt="" />
+                </div>
               </div>
-              <Link to="/user-profile">
+              <Link to={`/user-profile/${getUser?.username}`}>
                 <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                   Profile
                 </span>

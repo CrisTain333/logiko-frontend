@@ -1,16 +1,19 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import React from "react";
 import app from "../Firebase/Firebase.config";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signOut,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
 
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
@@ -18,7 +21,14 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  const loginUser = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
   const singOutUser = () => {
+    localStorage.removeItem("LogikoAuthToken");
+    setLoading(true);
     signOut(auth)
       .then(() => {
         // Sign-out successful.
@@ -28,8 +38,21 @@ const AuthProvider = ({ children }) => {
       });
   };
 
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (userinfo) => {
+      console.log(userinfo);
+      setUser(userinfo);
+      setLoading(false);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+  console.log(user);
   return (
-    <AuthContext.Provider value={{ createUser, singOutUser }}>
+    <AuthContext.Provider
+      value={{ createUser, singOutUser, loginUser, loading, user }}
+    >
       {children}
     </AuthContext.Provider>
   );

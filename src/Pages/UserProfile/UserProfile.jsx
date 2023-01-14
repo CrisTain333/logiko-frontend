@@ -4,8 +4,11 @@ import UserPost from "../../components/UserPost/UserPost";
 import userPost1 from "../../assets/images/MirsoN_zone_ankha_minus_8_meme_as_an_80s_dark_fantasy_film_5f90d6fc-cc0d-49b2-84c1-0abe640035fc.png";
 import userPost2 from "../../assets/images/Thoraha_a_logo_design_for_a_biodesign_studio_abstract_and_minim_4fbbab46-b745-429f-b27b-c7e60867ac53.png";
 import userpost3 from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
+import { useLoaderData } from "react-router-dom";
 
 const UserProfile = () => {
+  const userData = useLoaderData();
+
   return (
     <div>
       {/*user main Div  */}
@@ -13,56 +16,65 @@ const UserProfile = () => {
         <div className="shadow-md p-2 lg:p-6 rounded-lg  lg:mr-8 bg-base-200 w-[95%] mx-auto">
           {/* cover Image Div */}
           <div className="relative">
-            <img
+            {/* <img
               className="rounded-lg h-44 lg:h-80 w-full object-cover"
               src="https://wallpapercave.com/wp/wp11526112.jpg"
               alt=""
-            />
+            /> */}
 
-            {/* <div className="flex items-center justify-center w-full">
-              <label
-                htmlFor="dropzone-file"
-                className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-              >
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <svg
-                    aria-hidden="true"
-                    className="w-10 h-10 mb-3 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                    ></path>
-                  </svg>
-                  <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                    <span className="font-semibold">Click to upload</span> or drag
-                    and drop
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                    SVG, PNG, JPG or GIF (MAX. 800x400px)
-                  </p>
-                </div>
-                <input id="dropzone-file" type="file" className="hidden" />
-              </label>
-            </div> */}
+            <form action="">
+              <div className="flex items-center justify-center w-full">
+                <label
+                  htmlFor="dropzone-file"
+                  className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                >
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    <svg
+                      aria-hidden="true"
+                      className="w-10 h-10 mb-3 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                      ></path>
+                    </svg>
+                    <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                      <span className="font-semibold">Click to upload</span> or
+                      drag and drop
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      SVG, PNG, JPG or GIF (MAX. 800x400px)
+                    </p>
+                  </div>
+                  <input
+                    id="dropzone-file"
+                    name="coverPhoto"
+                    type="file"
+                    className="hidden"
+                  />
+                </label>
+              </div>
+            </form>
 
             <div className="absolute bottom-[-4rem]   lg:bottom-[-6rem] left-[5%]  lg:left-10">
               <div className="flex items-end space-x-5">
                 <div className="outline outline-4 outline-base-200 rounded-full">
                   <img
                     className="object-cover w-32 h-32   lg:w-32 lg:h-32 rounded-full"
-                    src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
+                    src={userData?.profilePic}
                     alt=""
                   />
                 </div>
                 <div className="pb-5 hidden lg:block">
-                  <p className="text-2xl text-base-900 font-bold">Cristain</p>
+                  <p className="text-2xl text-base-900 font-bold">
+                    {userData?.name}
+                  </p>
                   <p className="text-sm text-base-900">
                     400 Friends <span className="font-extrabold">•</span> 1.2k
                     Followers
@@ -181,7 +193,7 @@ const UserProfile = () => {
           </div>
           <div className="col-span-12 lg:col-span-8 w-[95%] mx-auto mt-8 lg:mt-0">
             <div className="mb-5">
-              <CreatePost />
+              <CreatePost userProfilePic={userData?.profilePic} />
             </div>
             <div className="space-y-5">
               <UserPost img={userPost1} />
