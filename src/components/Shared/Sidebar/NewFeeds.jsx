@@ -16,7 +16,7 @@ const NewFeeds = () => {
             {/* Links */}
             <div className="flex items-center">
               <div className="avatar">
-                <div className="w-10 rounded-full">
+                <div className="w-7 rounded-full">
                   <img
                     src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
                     alt=""
