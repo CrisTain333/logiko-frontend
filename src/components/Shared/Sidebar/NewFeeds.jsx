@@ -2,16 +2,16 @@ import React, { useContext } from "react";
 import newsFeed from "../../../assets/Icons/newsfeed.png";
 // import storyIcon from "../../../assets/Icons/instagram-stories.png";
 import friends from "../../../assets/Icons/friends.png";
-import userIcon from "../../../assets/Icons/user.png";
+// import userIcon from "../../../assets/Icons/user.png";
 import chatIcon from "../../../assets/Icons/chat.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 import getUser from "../../../Helper/getUser";
 
-const NewFeeds = async () => {
+const NewFeeds = () => {
   const { user } = useContext(AuthContext);
-  const getUserInformation = await getUser(user.email);
-  console.log(getUserInformation);
+  // const getUserInformation = await getUser(user.email);
+  // console.log(getUserInformation);
 
   return (
     <>

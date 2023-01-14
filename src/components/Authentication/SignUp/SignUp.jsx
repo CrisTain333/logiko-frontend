@@ -23,7 +23,6 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const gender = form.gender.value;
-    const phone = form.phone.value;
     const username = form.username.value;
     const profilePicture = form.profilePicture.files[0];
     const formData = new FormData();
@@ -52,7 +51,6 @@ const SignUp = () => {
               name,
               email,
               gender,
-              phone,
               profilePic,
               password,
               username
@@ -150,7 +148,7 @@ const SignUp = () => {
                         <select
                           required
                           name="gender"
-                          className="border p-2 w-full text-black font-medium"
+                          className="border p-3 w-full text-black font-medium"
                         >
                           <option value="Male">Male</option>
                           <option value="female">Female</option>
@@ -161,13 +159,13 @@ const SignUp = () => {
                           className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
                           htmlFor="grid-number"
                         >
-                          Phone Number
+                          Username
                         </label>
                         <input
                           className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  "
-                          name="phone"
+                          name="username"
                           required
-                          type="Number"
+                          type="text"
                         />
                       </div>
                     </div>
@@ -195,25 +193,6 @@ const SignUp = () => {
                             className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
                             htmlFor="grid-number"
                           >
-                            Username
-                          </label>
-                          <input
-                            className="appearance-none block w-full  text-black font-medium border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  "
-                            required
-                            name="username"
-                            // type={view ? "text" : "password"}
-                            type="text"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap -mx-3 mb-2">
-                      <div className=" w-full px-3 ">
-                        <div>
-                          <label
-                            className="block uppercase tracking-wide text-base-900 text-xs font-bold mb-2"
-                            htmlFor="grid-number"
-                          >
                             Password
                           </label>
                           <input
@@ -226,7 +205,7 @@ const SignUp = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex   -mx-3 mb-6">
+                    <div className="flex   -mx-3 mb-2">
                       <div className="w-full flex  justify-center px-3">
                         <button
                           className="w-full bg-primary text-white py-2 px-5 rounded  transition-all duration-500 text-lg font-semibold"
@@ -237,7 +216,7 @@ const SignUp = () => {
                         </button>
                       </div>
                     </div>
-                    <p className="text-xs text-center sm:px-6 py-2 text-base-900 my-3">
+                    <p className="text-xs text-center sm:px-6 py-2 text-base-900 my-1">
                       All ready a user?
                       <Link to="/login" className="underline text-primary px-2">
                         Sign In
