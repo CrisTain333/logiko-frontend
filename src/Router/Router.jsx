@@ -12,51 +12,96 @@ import SavedAddress from "../Pages/Settings/SavedAddress/SavedAddress";
 import Settings from "../Pages/Settings/Settings";
 import SocialAccount from "../Pages/Settings/SocialAccount/SocialAccount";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import PrivateRoute from "./Private/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <PrivateRoute>
+        <MainLayout />{" "}
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <PrivateRoute>
+            <Home />{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "/user-profile",
-        element: <UserProfile />,
+        element: (
+          <PrivateRoute>
+            <UserProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/friends",
-        element: <Friends />,
+        element: (
+          <PrivateRoute>
+            <Friends />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/settings",
-        element: <Settings />,
+        element: (
+          <PrivateRoute>
+            <Settings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/settings/account-information",
-        element: <AccountInformation />,
+        element: (
+          <PrivateRoute>
+            <AccountInformation />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/settings/contact-information",
-        element: <SavedAddress />,
+        element: (
+          <PrivateRoute>
+            <SavedAddress />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/settings/social-account",
-        element: <SocialAccount />,
+        element: (
+          <PrivateRoute>
+            <SocialAccount />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/settings/change-password",
-        element: <Password />,
+        element: (
+          <PrivateRoute>
+            <Password />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/help",
-        element: <Help />,
+        element: (
+          <PrivateRoute>
+            <Help />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/chat",
-        element: <Chat />,
+        element: (
+          <PrivateRoute>
+            <Chat />
+          </PrivateRoute>
+        ),
       },
     ],
   },
