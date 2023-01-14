@@ -13,13 +13,13 @@ const UserProfile = () => {
         <div className="shadow-md p-2 lg:p-6 rounded-lg  lg:mr-8 bg-base-200 w-[95%] mx-auto">
           {/* cover Image Div */}
           <div className="relative">
-            <img
+            {/* <img
               className="rounded-lg h-44 lg:h-80 w-full object-cover"
               src="https://wallpapercave.com/wp/wp11526112.jpg"
               alt=""
-            />
+            /> */}
 
-            {/* <div className="flex items-center justify-center w-full">
+            <div className="flex items-center justify-center w-full">
               <label
                 htmlFor="dropzone-file"
                 className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
@@ -41,8 +41,8 @@ const UserProfile = () => {
                     ></path>
                   </svg>
                   <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                    <span className="font-semibold">Click to upload</span> or drag
-                    and drop
+                    <span className="font-semibold">Click to upload</span> or
+                    drag and drop
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
                     SVG, PNG, JPG or GIF (MAX. 800x400px)
@@ -50,7 +50,7 @@ const UserProfile = () => {
                 </div>
                 <input id="dropzone-file" type="file" className="hidden" />
               </label>
-            </div> */}
+            </div>
 
             <div className="absolute bottom-[-4rem]   lg:bottom-[-6rem] left-[5%]  lg:left-10">
               <div className="flex items-end space-x-5">

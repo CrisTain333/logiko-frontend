@@ -1,6 +1,24 @@
 import logo from "../../../assets/Icons/logiko-without-bg.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthProvider";
+import getJwt from "../../../Helper/getJwt";
 const LogIn = () => {
+  const { loginUser } = useContext(AuthContext);
+
+  //handle login
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginUser(email, password).then((userCredential) => {
+      const email = userCredential.user.email;
+      getJwt(email);
+    });
+  };
+
   return (
     <div className="mt-24">
       {/* Main Div  */}
@@ -11,7 +29,7 @@ const LogIn = () => {
               <span className="flex justify-center items-center  w-full text-xl uppercase font-bold mb-4 text-center">
                 <img src={logo} alt="brandImage" className="w-[7rem] mr-2" />
               </span>
-              <form className="mb-4">
+              <form className="mb-4" onSubmit={handleLogin}>
                 <div className="mb-4 md:w-full">
                   <label htmlFor="email" className="block text-xs mb-1">
                     Email

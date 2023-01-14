@@ -5,6 +5,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signOut,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
@@ -18,6 +19,11 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  const loginUser = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
   const singOutUser = () => {
     signOut(auth)
       .then(() => {
@@ -29,7 +35,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ createUser, singOutUser }}>
+    <AuthContext.Provider value={{ createUser, singOutUser, loginUser }}>
       {children}
     </AuthContext.Provider>
   );
