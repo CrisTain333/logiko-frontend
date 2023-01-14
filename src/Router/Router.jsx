@@ -32,7 +32,12 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/user-profile",
+        path: "/user-profile/:id",
+        loader: async ({ params }) => {
+          return fetch(
+            `http://localhost:8000/api/v1/user-profile/${params.id}`
+          );
+        },
         element: (
           <PrivateRoute>
             <UserProfile />

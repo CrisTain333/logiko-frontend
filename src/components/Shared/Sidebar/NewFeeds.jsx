@@ -31,7 +31,7 @@ const NewFeeds = () => {
                   <img src={getUser?.profilePic} alt="" />
                 </div>
               </div>
-              <Link to="/user-profile">
+              <Link to={`/user-profile/${getUser?.username}`}>
                 <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                   Profile
                 </span>

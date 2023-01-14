@@ -4,8 +4,10 @@ import UserPost from "../../components/UserPost/UserPost";
 import userPost1 from "../../assets/images/MirsoN_zone_ankha_minus_8_meme_as_an_80s_dark_fantasy_film_5f90d6fc-cc0d-49b2-84c1-0abe640035fc.png";
 import userPost2 from "../../assets/images/Thoraha_a_logo_design_for_a_biodesign_studio_abstract_and_minim_4fbbab46-b745-429f-b27b-c7e60867ac53.png";
 import userpost3 from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
+import { useLoaderData } from "react-router-dom";
 
 const UserProfile = () => {
+  const userData = useLoaderData();
   return (
     <div>
       {/*user main Div  */}
@@ -57,12 +59,14 @@ const UserProfile = () => {
                 <div className="outline outline-4 outline-base-200 rounded-full">
                   <img
                     className="object-cover w-32 h-32   lg:w-32 lg:h-32 rounded-full"
-                    src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
+                    src={userData?.profilePic}
                     alt=""
                   />
                 </div>
                 <div className="pb-5 hidden lg:block">
-                  <p className="text-2xl text-base-900 font-bold">Cristain</p>
+                  <p className="text-2xl text-base-900 font-bold">
+                    {userData?.name}
+                  </p>
                   <p className="text-sm text-base-900">
                     400 Friends <span className="font-extrabold">•</span> 1.2k
                     Followers
@@ -181,7 +185,7 @@ const UserProfile = () => {
           </div>
           <div className="col-span-12 lg:col-span-8 w-[95%] mx-auto mt-8 lg:mt-0">
             <div className="mb-5">
-              <CreatePost />
+              <CreatePost userProfilePic={userData?.profilePic} />
             </div>
             <div className="space-y-5">
               <UserPost img={userPost1} />
