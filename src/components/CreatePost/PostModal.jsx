@@ -1,27 +1,37 @@
 import React, { useState } from "react";
-import data from "@emoji-mart/data";
-import Picker from "@emoji-mart/react";
+import smallLoader from "../../Helper/smallLoader";
+import uploadImage from "../../Helper/uploadImage";
+// import data from "@emoji-mart/data";
+// import Picker from "@emoji-mart/react";
 
 const PostModal = ({ showModal, setShowModal }) => {
+  const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState();
   const [input, setInput] = useState("");
-  const [showEmojis, setShowEmojis] = useState(false);
+  // const [showEmojis, setShowEmojis] = useState(false);
   const localDarkMode = localStorage.getItem("Dark-Mode");
-  console.log(localDarkMode);
+  const imageFile = selectedImage;
 
-  const addEmoji = (e) => {
-    let sym = e.unified.split("-");
-    let codesArray = [];
-    sym.forEach((el) => codesArray.push("0x" + el));
-    let emoji = String.fromCodePoint(...codesArray);
-    setInput(input + emoji);
-  };
-
-  console.log(input);
+  // const addEmoji = (e) => {
+  //   let sym = e.unified.split("-");
+  //   let codesArray = [];
+  //   sym.forEach((el) => codesArray.push("0x" + el));
+  //   let emoji = String.fromCodePoint(...codesArray);
+  //   setInput(input + emoji);
+  // };
 
   // handle post
-  const handlePost = (e) => {
+  const handlePost = async (e) => {
+    setLoading(true);
     e.preventDefault();
+
+    const imageUri = await uploadImage(imageFile);
+    console.log(imageUri);
+
+    const post = {
+      postText: input,
+    };
+    setLoading(false);
   };
 
   const imageChange = (e) => {
@@ -71,14 +81,13 @@ const PostModal = ({ showModal, setShowModal }) => {
                   <div className="p-5">
                     <textarea
                       value={input}
-                      onClick={() => setShowEmojis(false)}
+                      // onClick={() => setShowEmojis(false)}
                       onChange={(e) => setInput(e.target.value)}
                       type="text"
                       rows={2}
                       id="simple-search"
                       className="rounded-md font-medium text-xl w-full pl-5 p-2.5 focus:border-none focus:outline-none"
                       placeholder="What's on your mind?"
-                      required
                     />
 
                     {selectedImage && (
@@ -133,7 +142,7 @@ const PostModal = ({ showModal, setShowModal }) => {
                             type="file"
                             className="hidden"
                             onChange={imageChange}
-                            accept="image/*"
+                            // accept="image/*"
                             id="fileInput"
                           />
                         </button>
@@ -158,7 +167,7 @@ const PostModal = ({ showModal, setShowModal }) => {
                           </p>
                         </button> */}
                       </div>
-                      <button
+                      {/* <button
                         className=""
                         onClick={() => setShowEmojis(!showEmojis)}
                       >
@@ -176,9 +185,9 @@ const PostModal = ({ showModal, setShowModal }) => {
                             d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
                           />
                         </svg>
-                      </button>
+                      </button> */}
                     </div>
-                    {showEmojis && (
+                    {/* {showEmojis && (
                       <div className="absolute left-1/2 transform -translate-x-1/2 bottom-1/2 translate-y-1/2">
                         <Picker
                           searchPosition="none"
@@ -188,12 +197,14 @@ const PostModal = ({ showModal, setShowModal }) => {
                           onEmojiSelect={addEmoji}
                         />
                       </div>
-                    )}
+                    )} */}
                     <button
-                      onClick={() => setShowModal(false)}
+                      // onClick={() => setShowModal(false)}
+                      type="submit"
                       className="w-full bg-primary text-white font-bold py-[0.6rem] px-8 mt-5 rounded-md"
                     >
-                      Post
+                      {/* Post */}
+                      {loading ? smallLoader : "Post"}
                     </button>
                   </div>
                 </div>
