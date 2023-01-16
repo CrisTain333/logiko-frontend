@@ -4,6 +4,10 @@ import PostModal from "./PostModal";
 
 const CreatePost = ({ userProfilePic }) => {
   const [showModal, setShowModal] = useState(false);
+
+  // create  post
+  const handlePost = () => {};
+
   return (
     <div className="bg-base-200 rounded-xl shadow-md space-y-4 p-6">
       <div className="flex items-center space-x-3">
