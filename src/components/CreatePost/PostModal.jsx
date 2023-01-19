@@ -52,38 +52,38 @@ const PostModal = ({ showModal, setShowModal }) => {
     <div className="z-50">
       {showModal ? (
         <>
-          <form action="" onSubmit={handlePost}>
-            <div className="fixed inset-0 z-10 overflow-y-auto">
-              <div
-                className="fixed inset-0 w-full h-full bg-black opacity-40"
-                onClick={() => setShowModal(false)}
-              ></div>
-              <div className="flex items-center min-h-screen px-4 py-8">
-                <div className="relative w-full max-w-lg pt-14 mx-auto bg-base-200 rounded-md shadow-lg">
-                  <button
-                    className="bg-info p-1 rounded-full absolute right-3 top-3"
-                    onClick={() => setShowModal(false)}
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div
+              className="fixed inset-0 w-full h-full bg-black opacity-40"
+              onClick={() => setShowModal(false)}
+            ></div>
+            <div className="flex items-center min-h-screen px-4 py-8">
+              <div className="relative w-full max-w-lg pt-14 mx-auto bg-base-200 rounded-md shadow-lg">
+                <button
+                  className="bg-info p-1 rounded-full absolute right-3 top-3"
+                  onClick={() => setShowModal(false)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 text-accent"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6 text-accent"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                  <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 font-semibold text-xl">
-                    Create Post
-                  </h1>
-                  <div className="divider my-0"></div>
-                  <div className="p-5">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+                <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 font-semibold text-xl">
+                  Create Post
+                </h1>
+                <div className="divider my-0"></div>
+                <div className="p-5">
+                  <form action="" onSubmit={handlePost}>
                     <textarea
                       value={input}
                       // onClick={() => setShowEmojis(false)}
@@ -122,7 +122,7 @@ const PostModal = ({ showModal, setShowModal }) => {
                     )}
                     <div className="w-full flex justify-between relative">
                       <div className="flex items-center">
-                        <button className="flex items-center justify-center px-4 hover:bg-info w-full py-2 rounded-lg">
+                        <div className="flex items-center justify-center px-4 hover:bg-info w-full py-2 rounded-lg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -151,7 +151,7 @@ const PostModal = ({ showModal, setShowModal }) => {
                             // accept="image/*"
                             id="fileInput"
                           />
-                        </button>
+                        </div>
                         {/* <button className="flex items-center justify-center px-4 hover:bg-info w-full py-2 rounded-lg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -212,11 +212,11 @@ const PostModal = ({ showModal, setShowModal }) => {
                       {/* Post */}
                       {loading ? smallLoader : "Post"}
                     </button>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </>
       ) : null}
     </div>
