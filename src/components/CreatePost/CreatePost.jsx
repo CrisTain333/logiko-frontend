@@ -102,7 +102,7 @@ const CreatePost = ({ userProfilePic }) => {
             />
           </svg>
 
-          <p className="text-base-900 font-medium hidden lg:block">
+          <p className="text-base-900 font-medium hidden lg:block ">
             Feeling/Activity
           </p>
         </button>
