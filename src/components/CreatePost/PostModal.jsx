@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 import smallLoader from "../../Helper/smallLoader";
 import uploadImage from "../../Helper/uploadImage";
 // import data from "@emoji-mart/data";
 // import Picker from "@emoji-mart/react";
 
 const PostModal = ({ showModal, setShowModal }) => {
+  const [getUser, setGetUser] = useState([]);
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState();
   const [input, setInput] = useState("");
@@ -18,6 +21,13 @@ const PostModal = ({ showModal, setShowModal }) => {
   //   let emoji = String.fromCodePoint(...codesArray);
   //   setInput(input + emoji);
   // };
+  useEffect(() => {
+    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setGetUser(data);
+      });
+  }, [user?.email]);
 
   // handle post
   const handlePost = async (e) => {
@@ -29,14 +39,31 @@ const PostModal = ({ showModal, setShowModal }) => {
     formData.append("image", Picture);
 
     const imageUri = await uploadImage(formData);
-    console.log(imageUri);
+    const imageURL = imageUri?.data?.url || "";
 
     const post = {
+      email: getUser.email,
+      name: getUser.name,
+      userName: getUser.username,
+      userProfilePic: getUser.profilePic,
       postText: input,
-      displayImage: imageUri,
+      postImage: imageURL,
     };
-    console.log(post);
+
+    fetch("http://localhost:8000/api/v1/post", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+
     setLoading(false);
+    setInput("");
+    setShowModal(false);
+    setSelectedImage();
   };
 
   const imageChange = (e) => {
