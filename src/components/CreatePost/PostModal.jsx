@@ -10,7 +10,6 @@ const PostModal = ({ showModal, setShowModal }) => {
   const [input, setInput] = useState("");
   // const [showEmojis, setShowEmojis] = useState(false);
   const localDarkMode = localStorage.getItem("Dark-Mode");
-  const imageFile = selectedImage;
 
   // const addEmoji = (e) => {
   //   let sym = e.unified.split("-");
@@ -22,15 +21,21 @@ const PostModal = ({ showModal, setShowModal }) => {
 
   // handle post
   const handlePost = async (e) => {
-    setLoading(true);
     e.preventDefault();
+    setLoading(true);
+    const form = e.target;
+    const Picture = form.Picture.files[0];
+    const formData = new FormData();
+    formData.append("image", Picture);
 
-    const imageUri = await uploadImage(imageFile);
+    const imageUri = await uploadImage(formData);
     console.log(imageUri);
 
     const post = {
       postText: input,
+      displayImage: imageUri,
     };
+    console.log(post);
     setLoading(false);
   };
 
@@ -140,6 +145,7 @@ const PostModal = ({ showModal, setShowModal }) => {
                           </label>
                           <input
                             type="file"
+                            name="Picture"
                             className="hidden"
                             onChange={imageChange}
                             // accept="image/*"
