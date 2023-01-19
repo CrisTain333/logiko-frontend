@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import userPostImage from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
 import heartIcon from "../../assets/Icons/heart.png";
 
-const UserPost = ({ img }) => {
+const UserPost = ({ post }) => {
+  // const { userProfilePic, name, postImageImage } = props.post;
   const [liked, setLiked] = useState(0);
 
   return (
@@ -14,15 +15,12 @@ const UserPost = ({ img }) => {
           <div className="flex items-center justify-between">
             <div className="avatar">
               <div className="w-14 shadow-sm rounded-full">
-                <img
-                  src="https://i.ibb.co/bd90CTC/rsz-profile-pic-1.png"
-                  alt=""
-                />
+                <img src={post?.userProfilePic} alt="" />
               </div>
             </div>
             {/* user name and time */}
             <div className="ml-5">
-              <p className="text-sm font-bold text-base-900">Cristain</p>
+              <p className="text-sm font-bold text-base-900">{post?.name}</p>
               <p className="text-xs font-semibold text-neutral">22 min ago</p>
             </div>
           </div>
@@ -46,15 +44,14 @@ const UserPost = ({ img }) => {
         {/* user Text  */}
         <div className="w-[90%] my-5">
           <p className=" flex- flex-wrap text-sm text-neutral">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
-            inventore neque rem eaque, tempore blanditiis.
+            {post?.postCaption}
           </p>
         </div>
 
         {/* user posted Image  */}
-        {img ? (
+        {post?.postImageImage ? (
           <div className="rounded-xl">
-            <img src={img} className="rounded-xl" alt="" />
+            <img src={post?.postImageImage} className="rounded-xl" alt="" />
           </div>
         ) : null}
 
@@ -69,7 +66,7 @@ const UserPost = ({ img }) => {
                 alt=""
               />
               <p className="ml-2 text-sm font-bold text-base-900 flex">
-                2.6k
+                {post?.likes.length}
                 {/* <span className="hidden lg:block">like</span> */}
               </p>
             </div>
@@ -90,7 +87,7 @@ const UserPost = ({ img }) => {
                 />
               </svg>
               <p className="ml-2 text-sm font-bold text-base-900 flex">
-                22
+                {post?.comments.length}
                 {/* <span className="hidden lg:block ml-2">Comment</span> */}
               </p>
             </div>

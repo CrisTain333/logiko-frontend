@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import ReelsCard from "../../components/Shared/ReelsCard/ReelsCard";
 import FriendRequest from "../../components/Shared/Sidebar/FriendRequest";
@@ -8,9 +8,24 @@ import userPost2 from "../../assets/images/Thoraha_a_logo_design_for_a_biodesign
 import userpost3 from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
 
 import "./home.css";
+import { Toaster } from "react-hot-toast";
 const Home = () => {
+  const [fetchAgain, setFetchAgain] = useState(false);
+  const [posts, setPost] = useState([]);
+  useEffect(() => {
+    setFetchAgain(true);
+    fetch("http://localhost:8000/api/v1/post")
+      .then((rs) => rs.json())
+      .then((data) => {
+        setPost(data);
+        setFetchAgain(false);
+      });
+    setFetchAgain(false);
+  }, [fetchAgain]);
+
   return (
     <div>
+      <Toaster />
       {/* Main Div  */}
       <div>
         <div className="grid grid-cols-12 gap-4">
@@ -85,15 +100,14 @@ const Home = () => {
               </div>
               {/* Create Post */}
               <div className="w-[95%] mx-auto">
-                <CreatePost />
+                <CreatePost setFetchAgain={setFetchAgain} />
               </div>
 
               {/* User Post  */}
               <div className="w-[95%] mx-auto space-y-5 ">
-                <UserPost img={userPost1} />
-                <UserPost img={userPost2} />
-                <UserPost img={userpost3} />
-                <UserPost />
+                {posts.map((post) => {
+                  return <UserPost key={post._id} post={post} />;
+                })}
               </div>
             </div>
           </div>

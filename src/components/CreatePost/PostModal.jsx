@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
+import { AuthContext } from "../../context/AuthProvider";
 import smallLoader from "../../Helper/smallLoader";
 import uploadImage from "../../Helper/uploadImage";
 // import data from "@emoji-mart/data";
 // import Picker from "@emoji-mart/react";
 
-const PostModal = ({ showModal, setShowModal }) => {
+const PostModal = ({ showModal, setShowModal, setFetchAgain }) => {
+  const [getUser, setGetUser] = useState([]);
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState();
   const [input, setInput] = useState("");
   // const [showEmojis, setShowEmojis] = useState(false);
   const localDarkMode = localStorage.getItem("Dark-Mode");
-  const imageFile = selectedImage;
 
   // const addEmoji = (e) => {
   //   let sym = e.unified.split("-");
@@ -19,19 +22,60 @@ const PostModal = ({ showModal, setShowModal }) => {
   //   let emoji = String.fromCodePoint(...codesArray);
   //   setInput(input + emoji);
   // };
+  useEffect(() => {
+    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setGetUser(data);
+      });
+  }, [user?.email]);
 
   // handle post
   const handlePost = async (e) => {
-    setLoading(true);
     e.preventDefault();
+    setLoading(true);
+    const form = e.target;
+    const Picture = form.Picture.files[0];
+    const formData = new FormData();
+    formData.append("image", Picture);
 
-    const imageUri = await uploadImage(imageFile);
-    console.log(imageUri);
+    const imageUri = await uploadImage(formData);
+    const imageURL = imageUri?.data?.url || "";
 
     const post = {
+      email: getUser.email,
+      name: getUser.name,
+      userName: getUser.username,
+      userProfilePic: getUser.profilePic,
       postText: input,
+      postImage: imageURL,
     };
-    setLoading(false);
+
+    fetch("http://localhost:8000/api/v1/post", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("posted");
+        }
+
+        setLoading(false);
+        setInput("");
+        setShowModal(false);
+        setSelectedImage();
+        setFetchAgain(true);
+      })
+      .catch((error) => {
+        toast.success("some thing went wrong");
+        console.log(error);
+        setLoading(false);
+        setInput("");
+        setShowModal(false);
+        setSelectedImage();
+      });
   };
 
   const imageChange = (e) => {
@@ -45,40 +89,41 @@ const PostModal = ({ showModal, setShowModal }) => {
 
   return (
     <div className="z-50">
+      <Toaster />
       {showModal ? (
         <>
-          <form action="" onSubmit={handlePost}>
-            <div className="fixed inset-0 z-10 overflow-y-auto">
-              <div
-                className="fixed inset-0 w-full h-full bg-black opacity-40"
-                onClick={() => setShowModal(false)}
-              ></div>
-              <div className="flex items-center min-h-screen px-4 py-8">
-                <div className="relative w-full max-w-lg pt-14 mx-auto bg-base-200 rounded-md shadow-lg">
-                  <button
-                    className="bg-info p-1 rounded-full absolute right-3 top-3"
-                    onClick={() => setShowModal(false)}
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div
+              className="fixed inset-0 w-full h-full bg-black opacity-40"
+              onClick={() => setShowModal(false)}
+            ></div>
+            <div className="flex items-center min-h-screen px-4 py-8">
+              <div className="relative w-full max-w-lg pt-14 mx-auto bg-base-200 rounded-md shadow-lg">
+                <button
+                  className="bg-info p-1 rounded-full absolute right-3 top-3"
+                  onClick={() => setShowModal(false)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 text-accent"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6 text-accent"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                  <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 font-semibold text-xl">
-                    Create Post
-                  </h1>
-                  <div className="divider my-0"></div>
-                  <div className="p-5">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+                <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 font-semibold text-xl">
+                  Create Post
+                </h1>
+                <div className="divider my-0"></div>
+                <div className="p-5">
+                  <form action="" onSubmit={handlePost}>
                     <textarea
                       value={input}
                       // onClick={() => setShowEmojis(false)}
@@ -117,7 +162,7 @@ const PostModal = ({ showModal, setShowModal }) => {
                     )}
                     <div className="w-full flex justify-between relative">
                       <div className="flex items-center">
-                        <button className="flex items-center justify-center px-4 hover:bg-info w-full py-2 rounded-lg">
+                        <div className="flex items-center justify-center px-4 hover:bg-info w-full py-2 rounded-lg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -140,12 +185,13 @@ const PostModal = ({ showModal, setShowModal }) => {
                           </label>
                           <input
                             type="file"
+                            name="Picture"
                             className="hidden"
                             onChange={imageChange}
                             // accept="image/*"
                             id="fileInput"
                           />
-                        </button>
+                        </div>
                         {/* <button className="flex items-center justify-center px-4 hover:bg-info w-full py-2 rounded-lg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -206,11 +252,11 @@ const PostModal = ({ showModal, setShowModal }) => {
                       {/* Post */}
                       {loading ? smallLoader : "Post"}
                     </button>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </>
       ) : null}
     </div>
