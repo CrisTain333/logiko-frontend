@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import userIcon from "../../assets/Icons/user.png";
 import PostModal from "./PostModal";
 
-const CreatePost = ({ userProfilePic }) => {
+const CreatePost = ({ setFetchAgain }) => {
   const [showModal, setShowModal] = useState(false);
 
   // create  post
@@ -10,6 +11,7 @@ const CreatePost = ({ userProfilePic }) => {
 
   return (
     <div className="bg-base-200 rounded-xl shadow-md space-y-4 p-6">
+      <Toaster />
       <div className="flex items-center space-x-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +109,11 @@ const CreatePost = ({ userProfilePic }) => {
           </p>
         </button>
       </div>
-      <PostModal showModal={showModal} setShowModal={setShowModal} />
+      <PostModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setFetchAgain={setFetchAgain}
+      />
     </div>
   );
 };

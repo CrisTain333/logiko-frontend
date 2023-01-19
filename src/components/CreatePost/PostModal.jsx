@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 import smallLoader from "../../Helper/smallLoader";
 import uploadImage from "../../Helper/uploadImage";
 // import data from "@emoji-mart/data";
 // import Picker from "@emoji-mart/react";
 
-const PostModal = ({ showModal, setShowModal }) => {
+const PostModal = ({ showModal, setShowModal, setFetchAgain }) => {
   const [getUser, setGetUser] = useState([]);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
@@ -57,13 +58,24 @@ const PostModal = ({ showModal, setShowModal }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-      });
+        if (data.acknowledged) {
+          toast.success("posted");
+        }
 
-    setLoading(false);
-    setInput("");
-    setShowModal(false);
-    setSelectedImage();
+        setLoading(false);
+        setInput("");
+        setShowModal(false);
+        setSelectedImage();
+        setFetchAgain(true);
+      })
+      .catch((error) => {
+        toast.success("some thing went wrong");
+        console.log(error);
+        setLoading(false);
+        setInput("");
+        setShowModal(false);
+        setSelectedImage();
+      });
   };
 
   const imageChange = (e) => {
@@ -77,6 +89,7 @@ const PostModal = ({ showModal, setShowModal }) => {
 
   return (
     <div className="z-50">
+      <Toaster />
       {showModal ? (
         <>
           <div className="fixed inset-0 z-10 overflow-y-auto">
