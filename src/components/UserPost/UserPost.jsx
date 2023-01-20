@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import userPostImage from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
 import heartIcon from "../../assets/Icons/heart.png";
+import getRelativeDateString from "../../Helper/getRelativeDateString";
 
 const UserPost = ({ post }) => {
   // const { userProfilePic, name, postImageImage } = props.post;
@@ -21,7 +22,9 @@ const UserPost = ({ post }) => {
             {/* user name and time */}
             <div className="ml-5">
               <p className="text-sm font-bold text-base-900">{post?.name}</p>
-              <p className="text-xs font-semibold text-neutral">22 min ago</p>
+              <p className="text-xs font-semibold text-neutral">
+                {getRelativeDateString(post?.date)}
+              </p>
             </div>
           </div>
           <div>
