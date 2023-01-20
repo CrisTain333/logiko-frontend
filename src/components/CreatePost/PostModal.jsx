@@ -69,7 +69,7 @@ const PostModal = ({ showModal, setShowModal, setFetchAgain }) => {
         setFetchAgain(true);
       })
       .catch((error) => {
-        toast.success("some thing went wrong");
+        toast.success("some thing went wrong ");
         console.log(error);
         setLoading(false);
         setInput("");
