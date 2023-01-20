@@ -5,19 +5,33 @@ import FriendRequest from "../../components/Shared/Sidebar/FriendRequest";
 import UserPost from "../../components/UserPost/UserPost";
 import "./home.css";
 import { Toaster } from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
 const Home = () => {
-  const [fetchAgain, setFetchAgain] = useState(false);
-  const [posts, setPost] = useState([]);
-  useEffect(() => {
-    setFetchAgain(true);
-    fetch("http://localhost:8000/api/v1/post")
-      .then((rs) => rs.json())
-      .then((data) => {
-        setPost(data);
-        setFetchAgain(false);
-      });
-    setFetchAgain(false);
-  }, [fetchAgain]);
+  // const [fetchAgain, setFetchAgain] = useState(false);
+  // const [posts, setPost] = useState([]);
+  // useEffect(() => {
+  //   setFetchAgain(true);
+  //   fetch("http://localhost:8000/api/v1/post")
+  //     .then((rs) => rs.json())
+  //     .then((data) => {
+  //       setPost(data);
+  //       setFetchAgain(false);
+  //     });
+  //   setFetchAgain(false);
+  // }, [fetchAgain]);
+
+  const {
+    data: posts = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["posts"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:8000/api/v1/post");
+      const data = await res.json();
+      return data;
+    },
+  });
 
   return (
     <div>
@@ -96,7 +110,7 @@ const Home = () => {
               </div>
               {/* Create Post */}
               <div className="w-[95%] mx-auto">
-                <CreatePost setFetchAgain={setFetchAgain} />
+                <CreatePost refetch={refetch} />
               </div>
 
               {/* User Post  */}
