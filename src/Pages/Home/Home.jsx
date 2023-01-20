@@ -1,27 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import ReelsCard from "../../components/Shared/ReelsCard/ReelsCard";
 import FriendRequest from "../../components/Shared/Sidebar/FriendRequest";
 import UserPost from "../../components/UserPost/UserPost";
-import userPost1 from "../../assets/images/MirsoN_zone_ankha_minus_8_meme_as_an_80s_dark_fantasy_film_5f90d6fc-cc0d-49b2-84c1-0abe640035fc.png";
-import userPost2 from "../../assets/images/Thoraha_a_logo_design_for_a_biodesign_studio_abstract_and_minim_4fbbab46-b745-429f-b27b-c7e60867ac53.png";
-import userpost3 from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
-
 import "./home.css";
 import { Toaster } from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+import { ThreeCircles } from "react-loader-spinner";
 const Home = () => {
-  const [fetchAgain, setFetchAgain] = useState(false);
-  const [posts, setPost] = useState([]);
-  useEffect(() => {
-    setFetchAgain(true);
-    fetch("http://localhost:8000/api/v1/post")
-      .then((rs) => rs.json())
-      .then((data) => {
-        setPost(data);
-        setFetchAgain(false);
-      });
-    setFetchAgain(false);
-  }, [fetchAgain]);
+  const {
+    data: posts = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["posts"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:8000/api/v1/post");
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  if (isLoading) {
+    <div className="h-3/4 w-full flex justify-center items-center mt-20">
+      <ThreeCircles
+        height="150"
+        width="150"
+        color="#3075FF"
+        wrapperStyle={{}}
+        wrapperclassName=""
+        visible={true}
+        ariaLabel="three-circles-rotating"
+        outerCircleColor=""
+        innerCircleColor=""
+        middleCircleColor=""
+      />
+    </div>;
+  }
 
   return (
     <div>
@@ -100,13 +115,15 @@ const Home = () => {
               </div>
               {/* Create Post */}
               <div className="w-[95%] mx-auto">
-                <CreatePost setFetchAgain={setFetchAgain} />
+                <CreatePost refetch={refetch} />
               </div>
 
               {/* User Post  */}
               <div className="w-[95%] mx-auto space-y-5 ">
                 {posts.map((post) => {
-                  return <UserPost key={post._id} post={post} />;
+                  return (
+                    <UserPost key={post._id} post={post} refetch={refetch} />
+                  );
                 })}
               </div>
             </div>

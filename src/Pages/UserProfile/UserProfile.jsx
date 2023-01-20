@@ -1,13 +1,26 @@
 import React from "react";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import UserPost from "../../components/UserPost/UserPost";
-import userPost1 from "../../assets/images/MirsoN_zone_ankha_minus_8_meme_as_an_80s_dark_fantasy_film_5f90d6fc-cc0d-49b2-84c1-0abe640035fc.png";
-import userPost2 from "../../assets/images/Thoraha_a_logo_design_for_a_biodesign_studio_abstract_and_minim_4fbbab46-b745-429f-b27b-c7e60867ac53.png";
-import userpost3 from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
 import { useLoaderData } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 const UserProfile = () => {
   const userData = useLoaderData();
+
+  const {
+    data: posts = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["posts", userData?.email],
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:8000/api/v1/post/${userData?.email}`
+      );
+      const data = res.json();
+      return data;
+    },
+  });
 
   return (
     <div>
@@ -38,9 +51,9 @@ const UserProfile = () => {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                       ></path>
                     </svg>
@@ -76,8 +89,7 @@ const UserProfile = () => {
                     {userData?.name}
                   </p>
                   <p className="text-sm text-base-900">
-                    400 Friends <span className="font-extrabold">•</span> 1.2k
-                    Followers
+                    {userData.friends.length} Friends
                   </p>
                 </div>
               </div>
@@ -86,10 +98,11 @@ const UserProfile = () => {
 
           <div className="mt-16 lg:hidden ">
             <div className="ml-5 ">
-              <p className="text-2xl text-base-900 font-bold">Cristain</p>
+              <p className="text-2xl text-base-900 font-bold">
+                {userData?.name}
+              </p>
               <p className="text-sm text-base-900">
-                400 Friends <span className="font-extrabold">•</span> 1.2k
-                Followers
+                {userData.friends.length} Friends
               </p>
             </div>
           </div>
@@ -193,12 +206,16 @@ const UserProfile = () => {
           </div>
           <div className="col-span-12 lg:col-span-8 w-[95%] mx-auto mt-8 lg:mt-0">
             <div className="mb-5">
-              <CreatePost userProfilePic={userData?.profilePic} />
+              <CreatePost
+                userProfilePic={userData?.profilePic}
+                refetch={refetch}
+              />
             </div>
             <div className="space-y-5">
-              <UserPost img={userPost1} />
-              <UserPost img={userPost2} />
-              <UserPost img={userpost3} />
+              {/* <UserPost img={userPost1} /> */}
+              {posts.map((post) => (
+                <UserPost key={post._id} post={post} refetch={refetch} />
+              ))}
             </div>
           </div>
         </div>

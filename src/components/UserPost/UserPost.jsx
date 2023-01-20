@@ -1,13 +1,31 @@
-import React, { useState } from "react";
-import userPostImage from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
-import heartIcon from "../../assets/Icons/heart.png";
+import React from "react";
+import Like from "../../assets/Icons/like (1).png";
+import likedIcon from "../../assets/Icons/heart.png";
+import getRelativeDateString from "../../Helper/getRelativeDateString";
 
-const UserPost = ({ post }) => {
-  // const { userProfilePic, name, postImageImage } = props.post;
-  const [liked, setLiked] = useState(0);
+const UserPost = ({ post, refetch }) => {
+  console.log(post.likes);
+
+  const handleLikeDislike = () => {
+    const likedUser = {
+      postId: post?._id,
+      userName: post?.userName,
+      liked: true,
+    };
+    fetch("http://localhost:8000/api/v1/like", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(likedUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        refetch();
+      });
+  };
 
   return (
-    <div className="bg-base-200 rounded-xl shadow-md  p-6">
+    <div className="bg-base-200 rounded-xl shadow-md  p-6  mx-auto">
       {/* main div */}
       <div className="mainDiv">
         {/* user info div  */}
@@ -21,7 +39,9 @@ const UserPost = ({ post }) => {
             {/* user name and time */}
             <div className="ml-5">
               <p className="text-sm font-bold text-base-900">{post?.name}</p>
-              <p className="text-xs font-semibold text-neutral">22 min ago</p>
+              <p className="text-xs font-semibold text-neutral">
+                {getRelativeDateString(post?.date)}
+              </p>
             </div>
           </div>
           <div>
@@ -43,15 +63,19 @@ const UserPost = ({ post }) => {
         </div>
         {/* user Text  */}
         <div className="w-[90%] my-5">
-          <p className=" flex- flex-wrap text-sm text-neutral">
+          <p className=" flex- flex-wrap text-sm text-accent">
             {post?.postCaption}
           </p>
         </div>
 
         {/* user posted Image  */}
         {post?.postImageImage ? (
-          <div className="rounded-xl">
-            <img src={post?.postImageImage} className="rounded-xl" alt="" />
+          <div className="rounded-xl ">
+            <img
+              src={post?.postImageImage}
+              className="rounded-xl h-96 w-96 object-contain mx-auto"
+              alt=""
+            />
           </div>
         ) : null}
 
@@ -60,11 +84,24 @@ const UserPost = ({ post }) => {
           <div className=" flex items-center">
             {/* react div  */}
             <div className="flex items-center justify-between">
-              <img
-                src={heartIcon}
-                className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
-                alt=""
-              />
+              {post?.likes[0]?.liked === true ? (
+                <div onClick={handleLikeDislike}>
+                  <img
+                    src={likedIcon}
+                    className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
+                    alt=""
+                  />
+                </div>
+              ) : (
+                <div onClick={handleLikeDislike}>
+                  <img
+                    src={Like}
+                    className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
+                    alt=""
+                  />
+                </div>
+              )}
+
               <p className="ml-2 text-sm font-bold text-base-900 flex">
                 {post?.likes.length}
                 {/* <span className="hidden lg:block">like</span> */}

@@ -3,11 +3,8 @@ import { Toaster } from "react-hot-toast";
 import userIcon from "../../assets/Icons/user.png";
 import PostModal from "./PostModal";
 
-const CreatePost = ({ setFetchAgain }) => {
+const CreatePost = ({ setFetchAgain, refetch }) => {
   const [showModal, setShowModal] = useState(false);
-
-  // create  post
-  const handlePost = () => {};
 
   return (
     <div className="bg-base-200 rounded-xl shadow-md space-y-4 p-6">
@@ -113,6 +110,7 @@ const CreatePost = ({ setFetchAgain }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         setFetchAgain={setFetchAgain}
+        refetch={refetch}
       />
     </div>
   );
