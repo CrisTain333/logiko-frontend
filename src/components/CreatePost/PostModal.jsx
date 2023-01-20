@@ -60,14 +60,14 @@ const PostModal = ({ showModal, setShowModal, setFetchAgain, setGetPost }) => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("posted");
+          setGetPost(true);
+          setFetchAgain(true);
         }
 
         setLoading(false);
         setInput("");
         setShowModal(false);
         setSelectedImage();
-        setFetchAgain(true);
-        setGetPost(true);
       })
       .catch((error) => {
         toast.success("some thing went wrong ");

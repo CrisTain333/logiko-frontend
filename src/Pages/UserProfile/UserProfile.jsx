@@ -13,7 +13,6 @@ const UserProfile = () => {
       .then((rs) => rs.json())
       .then((data) => {
         setPosts(data);
-        setGetPost(false);
       });
     setGetPost(false);
   }, [userData?.email, getPost]);
