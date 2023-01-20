@@ -3,7 +3,7 @@ import { Toaster } from "react-hot-toast";
 import userIcon from "../../assets/Icons/user.png";
 import PostModal from "./PostModal";
 
-const CreatePost = ({ setFetchAgain, setGetPost }) => {
+const CreatePost = ({ setFetchAgain, refetch }) => {
   const [showModal, setShowModal] = useState(false);
 
   // create  post
@@ -113,7 +113,7 @@ const CreatePost = ({ setFetchAgain, setGetPost }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         setFetchAgain={setFetchAgain}
-        setGetPost={setGetPost}
+        refetch={refetch}
       />
     </div>
   );

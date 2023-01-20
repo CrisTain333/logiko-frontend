@@ -1,21 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import UserPost from "../../components/UserPost/UserPost";
 import { useLoaderData } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 const UserProfile = () => {
-  const [posts, setPosts] = useState([]);
-  const [getPost, setGetPost] = useState(false);
   const userData = useLoaderData();
-  useEffect(() => {
-    setGetPost(true);
-    fetch(`http://localhost:8000/api/v1/post/${userData?.email}`)
-      .then((rs) => rs.json())
-      .then((data) => {
-        setPosts(data);
-      });
-    setGetPost(false);
-  }, [userData?.email, getPost]);
+
+  const {
+    data: posts = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["posts", userData?.email],
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:8000/api/v1/post/${userData?.email}`
+      );
+      const data = res.json();
+      return data;
+    },
+  });
+
+  // useEffect(() => {
+  //   setGetPost(true);
+  //   fetch(`http://localhost:8000/api/v1/post/${userData?.email}`)
+  //     .then((rs) => rs.json())
+  //     .then((data) => {
+  //       setPosts(data);
+  //     });
+  //   setGetPost(false);
+  // }, [userData?.email, getPost]);
 
   return (
     <div>
@@ -203,7 +218,7 @@ const UserProfile = () => {
             <div className="mb-5">
               <CreatePost
                 userProfilePic={userData?.profilePic}
-                setGetPost={setGetPost}
+                refetch={refetch}
               />
             </div>
             <div className="space-y-5">

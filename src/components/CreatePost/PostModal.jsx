@@ -6,7 +6,7 @@ import uploadImage from "../../Helper/uploadImage";
 // import data from "@emoji-mart/data";
 // import Picker from "@emoji-mart/react";
 
-const PostModal = ({ showModal, setShowModal, setFetchAgain, setGetPost }) => {
+const PostModal = ({ showModal, setShowModal, setFetchAgain, refetch }) => {
   const [getUser, setGetUser] = useState([]);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
@@ -60,7 +60,7 @@ const PostModal = ({ showModal, setShowModal, setFetchAgain, setGetPost }) => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("posted");
-          setGetPost(true);
+          refetch();
           setFetchAgain(true);
         }
 
