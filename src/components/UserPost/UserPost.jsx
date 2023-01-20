@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import userPostImage from "../../assets/images/ulmai_flowers_covering_is_face_1870c0e8-269a-4fc8-ac2d-17499e5f673d.png";
 import heartIcon from "../../assets/Icons/heart.png";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 

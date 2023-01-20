@@ -5,14 +5,18 @@ import { useLoaderData } from "react-router-dom";
 
 const UserProfile = () => {
   const [posts, setPosts] = useState([]);
+  const [getPost, setGetPost] = useState(false);
   const userData = useLoaderData();
   useEffect(() => {
+    setGetPost(true);
     fetch(`http://localhost:8000/api/v1/post/${userData?.email}`)
       .then((rs) => rs.json())
       .then((data) => {
         setPosts(data);
+        setGetPost(false);
       });
-  }, [userData?.email]);
+    setGetPost(false);
+  }, [userData?.email, getPost]);
 
   return (
     <div>
@@ -198,7 +202,10 @@ const UserProfile = () => {
           </div>
           <div className="col-span-12 lg:col-span-8 w-[95%] mx-auto mt-8 lg:mt-0">
             <div className="mb-5">
-              <CreatePost userProfilePic={userData?.profilePic} />
+              <CreatePost
+                userProfilePic={userData?.profilePic}
+                setGetPost={setGetPost}
+              />
             </div>
             <div className="space-y-5">
               {/* <UserPost img={userPost1} /> */}
