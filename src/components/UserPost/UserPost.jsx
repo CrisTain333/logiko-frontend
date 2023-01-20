@@ -6,6 +6,10 @@ const UserPost = ({ post }) => {
   // const { userProfilePic, name, postImageImage } = props.post;
   const [liked, setLiked] = useState(0);
 
+  const handleLikeDislike = () => {
+    console.log("got clicked");
+  };
+
   return (
     <div className="bg-base-200 rounded-xl shadow-md  p-6 w-[90%] mx-auto">
       {/* main div */}
@@ -66,11 +70,13 @@ const UserPost = ({ post }) => {
           <div className=" flex items-center">
             {/* react div  */}
             <div className="flex items-center justify-between">
-              <img
-                src={heartIcon}
-                className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
-                alt=""
-              />
+              <div onClick={handleLikeDislike}>
+                <img
+                  src={heartIcon}
+                  className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
+                  alt=""
+                />
+              </div>
               <p className="ml-2 text-sm font-bold text-base-900 flex">
                 {post?.likes.length}
                 {/* <span className="hidden lg:block">like</span> */}
