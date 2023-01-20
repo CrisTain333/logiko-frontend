@@ -7,7 +7,7 @@ const UserPost = ({ post }) => {
   const [liked, setLiked] = useState(0);
 
   return (
-    <div className="bg-base-200 rounded-xl shadow-md  p-6">
+    <div className="bg-base-200 rounded-xl shadow-md  p-6 w-[90%] mx-auto">
       {/* main div */}
       <div className="mainDiv">
         {/* user info div  */}
@@ -43,15 +43,19 @@ const UserPost = ({ post }) => {
         </div>
         {/* user Text  */}
         <div className="w-[90%] my-5">
-          <p className=" flex- flex-wrap text-sm text-neutral">
+          <p className=" flex- flex-wrap text-sm text-accent">
             {post?.postCaption}
           </p>
         </div>
 
         {/* user posted Image  */}
         {post?.postImageImage ? (
-          <div className="rounded-xl">
-            <img src={post?.postImageImage} className="rounded-xl" alt="" />
+          <div className="rounded-xl ">
+            <img
+              src={post?.postImageImage}
+              className="rounded-xl h-96 w-96 object-contain mx-auto"
+              alt=""
+            />
           </div>
         ) : null}
 
