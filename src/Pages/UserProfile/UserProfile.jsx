@@ -214,7 +214,7 @@ const UserProfile = () => {
             <div className="space-y-5">
               {/* <UserPost img={userPost1} /> */}
               {posts.map((post) => (
-                <UserPost key={post._id} post={post} />
+                <UserPost key={post._id} post={post} refetch={refetch} />
               ))}
             </div>
           </div>

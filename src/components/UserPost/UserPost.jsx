@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Like from "../../assets/Icons/like (1).png";
 import likedIcon from "../../assets/Icons/heart.png";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
-const UserPost = ({ post }) => {
-  // const { userProfilePic, name, postImageImage } = props.post;
-  const [liked, setLiked] = useState(0);
+const UserPost = ({ post, refetch }) => {
+  console.log(post.likes);
 
   const handleLikeDislike = () => {
     const likedUser = {
@@ -17,7 +16,12 @@ const UserPost = ({ post }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(likedUser),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        refetch();
+      });
   };
 
   return (
@@ -80,13 +84,24 @@ const UserPost = ({ post }) => {
           <div className=" flex items-center">
             {/* react div  */}
             <div className="flex items-center justify-between">
-              <div onClick={handleLikeDislike}>
-                <img
-                  src={Like}
-                  className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
-                  alt=""
-                />
-              </div>
+              {post?.likes[0]?.liked === true ? (
+                <div onClick={handleLikeDislike}>
+                  <img
+                    src={likedIcon}
+                    className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
+                    alt=""
+                  />
+                </div>
+              ) : (
+                <div onClick={handleLikeDislike}>
+                  <img
+                    src={Like}
+                    className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
+                    alt=""
+                  />
+                </div>
+              )}
+
               <p className="ml-2 text-sm font-bold text-base-900 flex">
                 {post?.likes.length}
                 {/* <span className="hidden lg:block">like</span> */}

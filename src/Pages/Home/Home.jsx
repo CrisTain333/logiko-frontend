@@ -121,7 +121,9 @@ const Home = () => {
               {/* User Post  */}
               <div className="w-[95%] mx-auto space-y-5 ">
                 {posts.map((post) => {
-                  return <UserPost key={post._id} post={post} />;
+                  return (
+                    <UserPost key={post._id} post={post} refetch={refetch} />
+                  );
                 })}
               </div>
             </div>
