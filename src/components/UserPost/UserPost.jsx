@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import heartIcon from "../../assets/Icons/heart.png";
+import Like from "../../assets/Icons/like (1).png";
+import likedIcon from "../../assets/Icons/heart.png";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
 const UserPost = ({ post }) => {
@@ -20,7 +21,7 @@ const UserPost = ({ post }) => {
   };
 
   return (
-    <div className="bg-base-200 rounded-xl shadow-md  p-6 w-[90%] mx-auto">
+    <div className="bg-base-200 rounded-xl shadow-md  p-6  mx-auto">
       {/* main div */}
       <div className="mainDiv">
         {/* user info div  */}
@@ -81,7 +82,7 @@ const UserPost = ({ post }) => {
             <div className="flex items-center justify-between">
               <div onClick={handleLikeDislike}>
                 <img
-                  src={heartIcon}
+                  src={Like}
                   className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
                   alt=""
                 />
