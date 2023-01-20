@@ -7,7 +7,16 @@ const UserPost = ({ post }) => {
   const [liked, setLiked] = useState(0);
 
   const handleLikeDislike = () => {
-    console.log("got clicked");
+    const likedUser = {
+      postId: post?._id,
+      userName: post?.userName,
+      liked: true,
+    };
+    fetch("http://localhost:8000/api/v1/like", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(likedUser),
+    });
   };
 
   return (
