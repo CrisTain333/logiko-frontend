@@ -22,16 +22,6 @@ const UserProfile = () => {
     },
   });
 
-  // useEffect(() => {
-  //   setGetPost(true);
-  //   fetch(`http://localhost:8000/api/v1/post/${userData?.email}`)
-  //     .then((rs) => rs.json())
-  //     .then((data) => {
-  //       setPosts(data);
-  //     });
-  //   setGetPost(false);
-  // }, [userData?.email, getPost]);
-
   return (
     <div>
       {/*user main Div  */}

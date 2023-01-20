@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import ReelsCard from "../../components/Shared/ReelsCard/ReelsCard";
 import FriendRequest from "../../components/Shared/Sidebar/FriendRequest";
@@ -6,20 +6,8 @@ import UserPost from "../../components/UserPost/UserPost";
 import "./home.css";
 import { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import { ThreeCircles } from "react-loader-spinner";
 const Home = () => {
-  // const [fetchAgain, setFetchAgain] = useState(false);
-  // const [posts, setPost] = useState([]);
-  // useEffect(() => {
-  //   setFetchAgain(true);
-  //   fetch("http://localhost:8000/api/v1/post")
-  //     .then((rs) => rs.json())
-  //     .then((data) => {
-  //       setPost(data);
-  //       setFetchAgain(false);
-  //     });
-  //   setFetchAgain(false);
-  // }, [fetchAgain]);
-
   const {
     data: posts = [],
     isLoading,
@@ -32,6 +20,23 @@ const Home = () => {
       return data;
     },
   });
+
+  if (isLoading) {
+    <div className="h-3/4 w-full flex justify-center items-center mt-20">
+      <ThreeCircles
+        height="150"
+        width="150"
+        color="#3075FF"
+        wrapperStyle={{}}
+        wrapperclassName=""
+        visible={true}
+        ariaLabel="three-circles-rotating"
+        outerCircleColor=""
+        innerCircleColor=""
+        middleCircleColor=""
+      />
+    </div>;
+  }
 
   return (
     <div>
