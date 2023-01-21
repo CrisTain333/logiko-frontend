@@ -1,5 +1,6 @@
 import React from "react";
 import FriendsCard from "../../components/FriendsCard/FriendsCard";
+import ComingSoon from "../ComingSoon/ComingSoon";
 
 const Friends = () => {
   return (
@@ -7,7 +8,7 @@ const Friends = () => {
       {/* Main Div  */}
       <div className="main_div">
         {/* search div  */}
-        <div className="bg-base-200 rounded-xl shadow-md  p-6 mr-5 flex items-center justify-between">
+        {/* <div className="bg-base-200 rounded-xl shadow-md  p-6 mr-5 flex items-center justify-between">
           <div>
             <p className="text-xl font-semibold">Friends</p>
           </div>
@@ -38,7 +39,7 @@ const Friends = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-x-5 gap-y-6 mr-5">
-          {/* user Friend Card */}
+          user Friend Card
           <FriendsCard />
           <FriendsCard />
           <FriendsCard />
@@ -50,7 +51,8 @@ const Friends = () => {
           <FriendsCard />
           <FriendsCard />
           <FriendsCard />
-        </div>
+        </div> */}
+        <ComingSoon />
       </div>
     </div>
   );
