@@ -25,7 +25,7 @@ const UserPost = ({ post, refetch }) => {
   };
 
   return (
-    <div className="bg-base-200 rounded-xl shadow-md  p-6  mx-auto">
+    <div className="bg-base-200 rounded-xl shadow-md  p-6  mx-auto ">
       {/* main div */}
       <div className="mainDiv">
         {/* user info div  */}
