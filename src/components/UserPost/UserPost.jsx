@@ -84,23 +84,13 @@ const UserPost = ({ post, refetch }) => {
           <div className=" flex items-center">
             {/* react div  */}
             <div className="flex items-center justify-between">
-              {post?.likes[0]?.liked === true ? (
-                <div onClick={handleLikeDislike}>
-                  <img
-                    src={likedIcon}
-                    className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
-                    alt=""
-                  />
-                </div>
-              ) : (
-                <div onClick={handleLikeDislike}>
-                  <img
-                    src={Like}
-                    className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
-                    alt=""
-                  />
-                </div>
-              )}
+              <div onClick={handleLikeDislike}>
+                <img
+                  src={likedIcon}
+                  className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
+                  alt=""
+                />
+              </div>
 
               <p className="ml-2 text-sm font-bold text-base-900 flex">
                 {post?.likes.length}
