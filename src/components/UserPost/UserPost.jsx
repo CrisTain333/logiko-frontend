@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -6,9 +7,9 @@ import likedIcon from "../../assets/Icons/heart.png";
 import { AuthContext } from "../../context/AuthProvider";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
-const UserPost = ({ post, refetch }) => {
+const UserPost = ({ post }) => {
   const [loading, setLoading] = useState(false);
-  const [likes, setLikes] = useState([]);
+  // const [likes, setLikes] = useState([]);
   const [getUser, setGetUser] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
@@ -22,16 +23,25 @@ const UserPost = ({ post, refetch }) => {
   // console.log(getUser);
 
   // GET Likes for post
-  useEffect(() => {
-    setLoading(true);
-    fetch(`http://localhost:8000/api/v1/like/${post?._id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setLikes(data);
-        setLoading(false);
-      });
-    setLoading(false);
-  }, [post?._id, loading]);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch(`http://localhost:8000/api/v1/like/${post?._id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setLikes(data);
+  //       setLoading(false);
+  //     });
+  //   setLoading(false);
+  // }, [post?._id, loading]);
+
+  const { data: likes = [], refetch } = useQuery({
+    queryKey: ["likes"],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:8000/api/v1/like/${post?._id}`);
+      const data = await res.json();
+      return data;
+    },
+  });
 
   const handleLikeDislike = () => {
     const likedUser = {
@@ -46,10 +56,8 @@ const UserPost = ({ post, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 400) {
-          console.log(data);
-          setLoading(true);
-        }
+        console.log(data);
+        setLoading(true);
         refetch();
       });
   };
