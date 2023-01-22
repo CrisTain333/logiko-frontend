@@ -40,7 +40,7 @@ const Home = () => {
 
   return (
     <div>
-      <Toaster />
+      <Toaster position="bottom-center" reverseOrder={false} />
       {/* Main Div  */}
       <div>
         <div className="grid grid-cols-12 gap-4">
