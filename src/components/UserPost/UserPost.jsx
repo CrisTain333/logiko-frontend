@@ -4,7 +4,7 @@ import likedIcon from "../../assets/Icons/heart.png";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
 const UserPost = ({ post, refetch }) => {
-  console.log(post.likes);
+  // GET Likes for post
 
   const handleLikeDislike = () => {
     const likedUser = {
