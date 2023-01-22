@@ -1,5 +1,5 @@
 import React from "react";
-import Like from "../../assets/Icons/like (1).png";
+import { toast, Toaster } from "react-hot-toast";
 import likedIcon from "../../assets/Icons/heart.png";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
@@ -19,6 +19,10 @@ const UserPost = ({ post, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.status === 400) {
+        }
+        toast.error(data.message);
+
         console.log(data);
         refetch();
       });
@@ -27,6 +31,7 @@ const UserPost = ({ post, refetch }) => {
   return (
     <div className="bg-base-200 rounded-xl shadow-md  p-6  mx-auto ">
       {/* main div */}
+      <Toaster position="bottom-center" reverseOrder={false} />
       <div className="mainDiv">
         {/* user info div  */}
         <div className="flex items-center justify-between">
