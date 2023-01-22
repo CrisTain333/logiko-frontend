@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import likedIcon from "../../assets/Icons/heart.png";
+import { AuthContext } from "../../context/AuthProvider";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
 const UserPost = ({ post, refetch }) => {
-  // const [likes, setLikes] = useState([]);
-  // // GET Likes for post
-  // useEffect(() => {
-  //   fetch(`http://localhost:8000/api/v1/like/${post?._id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setLikes(data);
-  //       refetch();
-  //     });
-  // }, [post?._id, refetch]);
+  const [loading, setLoading] = useState(false);
+  const [likes, setLikes] = useState([]);
+  const [getUser, setGetUser] = useState([]);
+  const { user } = useContext(AuthContext);
+  useEffect(() => {
+    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setGetUser(data);
+      });
+  }, [user?.email]);
+
+  // console.log(getUser);
+
+  // GET Likes for post
+  useEffect(() => {
+    setLoading(true);
+    fetch(`http://localhost:8000/api/v1/like/${post?._id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setLikes(data);
+        setLoading(false);
+      });
+    setLoading(false);
+  }, [post?._id, loading]);
 
   const handleLikeDislike = () => {
     const likedUser = {
       postId: post?._id,
-      userName: post?.userName,
+      userName: getUser?.username,
       liked: true,
     };
     fetch("http://localhost:8000/api/v1/like", {
@@ -31,10 +47,9 @@ const UserPost = ({ post, refetch }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 400) {
+          console.log(data);
+          setLoading(true);
         }
-        toast.error(data.message);
-
-        console.log(data);
         refetch();
       });
   };
@@ -109,7 +124,7 @@ const UserPost = ({ post, refetch }) => {
               </div>
 
               <p className="ml-2 text-sm font-bold text-base-900 flex">
-                {post?.likes?.length}
+                {likes?.length}
                 {/* <span className="hidden lg:block">like</span> */}
               </p>
             </div>
