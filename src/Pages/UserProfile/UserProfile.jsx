@@ -7,11 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 const UserProfile = () => {
   const userData = useLoaderData();
 
-  const {
-    data: posts = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: posts = [], refetch } = useQuery({
     queryKey: ["posts", userData?.email],
     queryFn: async () => {
       const res = await fetch(

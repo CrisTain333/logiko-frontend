@@ -1,10 +1,21 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import likedIcon from "../../assets/Icons/heart.png";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
 const UserPost = ({ post, refetch }) => {
-  // GET Likes for post
+  // const [likes, setLikes] = useState([]);
+  // // GET Likes for post
+  // useEffect(() => {
+  //   fetch(`http://localhost:8000/api/v1/like/${post?._id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setLikes(data);
+  //       refetch();
+  //     });
+  // }, [post?._id, refetch]);
 
   const handleLikeDislike = () => {
     const likedUser = {
@@ -98,7 +109,7 @@ const UserPost = ({ post, refetch }) => {
               </div>
 
               <p className="ml-2 text-sm font-bold text-base-900 flex">
-                {post?.likes.length}
+                {post?.likes?.length}
                 {/* <span className="hidden lg:block">like</span> */}
               </p>
             </div>
