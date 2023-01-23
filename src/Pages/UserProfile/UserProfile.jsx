@@ -11,7 +11,7 @@ const UserProfile = () => {
     queryKey: ["posts", userData?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/post/${userData?.email}`
+        `https://logiko-backend.vercel.app/api/v1/post/${userData?.email}`
       );
       const data = res.json();
       return data;
@@ -76,17 +76,13 @@ const UserProfile = () => {
                 <div className="outline outline-4 outline-base-200 rounded-full">
                   <img
                     className="object-cover w-32 h-32   lg:w-32 lg:h-32 rounded-full"
-                    src={userData?.profilePic}
+                    src="https://i.ibb.co/J5Fx2rW/Cris-Tains-Puja-beautiful-cartoon-boy8ksmart-2779a366-918c-4def-a898-f8c40b80a889.png"
                     alt=""
                   />
                 </div>
                 <div className="pb-5 hidden lg:block">
-                  <p className="text-2xl text-base-900 font-bold">
-                    {userData?.name}
-                  </p>
-                  <p className="text-sm text-base-900">
-                    {userData.friends.length} Friends
-                  </p>
+                  <p className="text-2xl text-base-900 font-bold">Cristain</p>
+                  <p className="text-sm text-base-900">200 Friends</p>
                 </div>
               </div>
             </div>
@@ -94,12 +90,8 @@ const UserProfile = () => {
 
           <div className="mt-16 lg:hidden ">
             <div className="ml-5 ">
-              <p className="text-2xl text-base-900 font-bold">
-                {userData?.name}
-              </p>
-              <p className="text-sm text-base-900">
-                {userData.friends.length} Friends
-              </p>
+              <p className="text-2xl text-base-900 font-bold">Cristain</p>
+              <p className="text-sm text-base-900">200 Friends</p>
             </div>
           </div>
 
@@ -209,9 +201,22 @@ const UserProfile = () => {
             </div>
             <div className="space-y-5">
               {/* <UserPost img={userPost1} /> */}
-              {posts.map((post) => (
-                <UserPost key={post._id} post={post} refetch={refetch} />
-              ))}
+
+              <UserPost
+                img={"https://i.ibb.co/0rMCwNT/1674460706815.png"}
+                likes={"10k"}
+                caption={"Ai"}
+              />
+              <UserPost
+                img={"https://i.ibb.co/brYpCMN/1674460706843.png"}
+                likes={"3k"}
+                caption={"Ai Nature Art"}
+              />
+              <UserPost
+                img={"https://i.ibb.co/HTs4Ms4/1674460706830.png"}
+                likes={"5k"}
+                caption={"Beauty Girls"}
+              />
             </div>
           </div>
         </div>

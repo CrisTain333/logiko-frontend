@@ -23,7 +23,7 @@ const PostModal = ({ showModal, setShowModal, setFetchAgain, refetch }) => {
   //   setInput(input + emoji);
   // };
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
+    fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setGetUser(data);
@@ -51,7 +51,7 @@ const PostModal = ({ showModal, setShowModal, setFetchAgain, refetch }) => {
       postImage: imageURL,
     };
 
-    fetch("http://localhost:8000/api/v1/post", {
+    fetch("https://logiko-backend.vercel.app/api/v1/post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),

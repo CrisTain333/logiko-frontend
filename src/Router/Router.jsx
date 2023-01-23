@@ -12,101 +12,57 @@ import SavedAddress from "../Pages/Settings/SavedAddress/SavedAddress";
 import Settings from "../Pages/Settings/Settings";
 import SocialAccount from "../Pages/Settings/SocialAccount/SocialAccount";
 import UserProfile from "../Pages/UserProfile/UserProfile";
-import PrivateRoute from "./Private/PrivateRoute";
+// import PrivateRoute from "./Private/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <PrivateRoute>
-        <MainLayout />{" "}
-      </PrivateRoute>
-    ),
+    element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: (
-          <PrivateRoute>
-            <Home />{" "}
-          </PrivateRoute>
-        ),
+        element: <Home />,
       },
       {
-        path: "/user-profile/:id",
-        loader: async ({ params }) => {
-          return fetch(
-            `http://localhost:8000/api/v1/user-profile/${params.id}`
-          );
-        },
-        element: (
-          <PrivateRoute>
-            <UserProfile />
-          </PrivateRoute>
-        ),
+        path: "/user-profile/cristain",
+        // loader: async ({ params }) => {
+        //   return fetch(
+        //     `https://logiko-backend.vercel.app/api/v1/user-profile/${params.id}`
+        //   );
+        // },
+        element: <UserProfile />,
       },
       {
         path: "/friends",
-        element: (
-          <PrivateRoute>
-            <Friends />
-          </PrivateRoute>
-        ),
+        element: <Friends />,
       },
       {
         path: "/settings",
-        element: (
-          <PrivateRoute>
-            <Settings />
-          </PrivateRoute>
-        ),
+        element: <Settings />,
       },
       {
         path: "/settings/account-information",
-        element: (
-          <PrivateRoute>
-            <AccountInformation />
-          </PrivateRoute>
-        ),
+        element: <AccountInformation />,
       },
       {
         path: "/settings/contact-information",
-        element: (
-          <PrivateRoute>
-            <SavedAddress />
-          </PrivateRoute>
-        ),
+        element: <SavedAddress />,
       },
       {
         path: "/settings/social-account",
-        element: (
-          <PrivateRoute>
-            <SocialAccount />
-          </PrivateRoute>
-        ),
+        element: <SocialAccount />,
       },
       {
         path: "/settings/change-password",
-        element: (
-          <PrivateRoute>
-            <Password />
-          </PrivateRoute>
-        ),
+        element: <Password />,
       },
       {
         path: "/help",
-        element: (
-          <PrivateRoute>
-            <Help />
-          </PrivateRoute>
-        ),
+        element: <Help />,
       },
       {
         path: "/chat",
-        element: (
-          <PrivateRoute>
-            <Chat />
-          </PrivateRoute>
-        ),
+        element: <Chat />,
       },
     ],
   },

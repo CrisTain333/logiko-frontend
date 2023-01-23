@@ -2,7 +2,7 @@ const getJwt = (email) => {
   const userEmail = {
     Email: email,
   };
-  const tokenUri = "http://localhost:8000/api/v1/jwt";
+  const tokenUri = "https://logiko-backend.vercel.app/api/v1/jwt";
   // get JWT token
   fetch(tokenUri, {
     method: "POST",

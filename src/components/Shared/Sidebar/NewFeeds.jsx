@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const NewFeeds = () => {
-  const [getUser, setGetUser] = useState([]);
-  const { user } = useContext(AuthContext);
-  useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setGetUser(data);
-      });
-  }, [user?.email]);
+  // const [getUser, setGetUser] = useState([]);
+  // const { user } = useContext(AuthContext);
+  // useEffect(() => {
+  //   fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setGetUser(data);
+  //     });
+  // }, [user?.email]);
 
   return (
     <>
@@ -25,18 +25,6 @@ const NewFeeds = () => {
           <p className="text-sm text-neutral font-medium">New Feeds</p>
           <div className="mt-5 space-y-4">
             {/* Links */}
-            <div className="flex items-center">
-              <div className="avatar">
-                <div className="w-7 rounded-full">
-                  <img src={getUser?.profilePic} alt="" />
-                </div>
-              </div>
-              <Link to={`/user-profile/${getUser?.username}`}>
-                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                  Profile
-                </span>
-              </Link>
-            </div>
             <div className="flex items-center">
               <div>
                 <img src={newsFeed} alt="" className="h-7 w-7" />
@@ -47,6 +35,22 @@ const NewFeeds = () => {
                 </span>
               </Link>
             </div>
+            <div className="flex items-center">
+              <div className="avatar">
+                <div className="w-7 rounded-full">
+                  <img
+                    src="https://i.ibb.co/J5Fx2rW/Cris-Tains-Puja-beautiful-cartoon-boy8ksmart-2779a366-918c-4def-a898-f8c40b80a889.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <Link to={`/user-profile/cristain`}>
+                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Profile
+                </span>
+              </Link>
+            </div>
+
             {/* <div className="flex items-center">
               <div>
                 <img src={storyIcon} alt="" className="h-7 w-7" />
