@@ -3,8 +3,8 @@ const saveUser = async (name, email, gender, img, password, username) => {
   const userEmail = {
     Email: data.email,
   };
-  const uri = "http://localhost:8000/api/v1/auth";
-  const tokenUri = "http://localhost:8000/api/v1/jwt";
+  const uri = "https://logiko-backend.vercel.app/api/v1/auth";
+  const tokenUri = "https://logiko-backend.vercel.app/api/v1/jwt";
   // get JWT token
   fetch(tokenUri, {
     method: "POST",

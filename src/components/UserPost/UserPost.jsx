@@ -13,7 +13,7 @@ const UserPost = ({ post }) => {
   const [getUser, setGetUser] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
+    fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setGetUser(data);
@@ -25,7 +25,7 @@ const UserPost = ({ post }) => {
   // GET Likes for post
   // useEffect(() => {
   //   setLoading(true);
-  //   fetch(`http://localhost:8000/api/v1/like/${post?._id}`)
+  //   fetch(`https://logiko-backend.vercel.app/api/v1/like/${post?._id}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setLikes(data);
@@ -37,7 +37,9 @@ const UserPost = ({ post }) => {
   const { data: likes = [], refetch } = useQuery({
     queryKey: ["likes"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:8000/api/v1/like/${post?._id}`);
+      const res = await fetch(
+        `https://logiko-backend.vercel.app/api/v1/like/${post?._id}`
+      );
       const data = await res.json();
       return data;
     },
@@ -49,7 +51,7 @@ const UserPost = ({ post }) => {
       userName: getUser?.username,
       liked: true,
     };
-    fetch("http://localhost:8000/api/v1/like", {
+    fetch("https://logiko-backend.vercel.app/api/v1/like", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(likedUser),

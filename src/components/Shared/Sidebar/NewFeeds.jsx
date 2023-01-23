@@ -11,7 +11,7 @@ const NewFeeds = () => {
   const [getUser, setGetUser] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/user/${user?.email}`)
+    fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setGetUser(data);

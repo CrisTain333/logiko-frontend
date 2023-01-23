@@ -11,7 +11,7 @@ const UserProfile = () => {
     queryKey: ["posts", userData?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/post/${userData?.email}`
+        `https://logiko-backend.vercel.app/api/v1/post/${userData?.email}`
       );
       const data = res.json();
       return data;

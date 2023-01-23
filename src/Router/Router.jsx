@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
         path: "/user-profile/:id",
         loader: async ({ params }) => {
           return fetch(
-            `http://localhost:8000/api/v1/user-profile/${params.id}`
+            `https://logiko-backend.vercel.app/api/v1/user-profile/${params.id}`
           );
         },
         element: (

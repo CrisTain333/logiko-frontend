@@ -15,7 +15,7 @@ const Home = () => {
   } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:8000/api/v1/post");
+      const res = await fetch("https://logiko-backend.vercel.app/api/v1/post");
       const data = await res.json();
       return data;
     },
