@@ -26,6 +26,16 @@ const NewFeeds = () => {
           <div className="mt-5 space-y-4">
             {/* Links */}
             <div className="flex items-center">
+              <div>
+                <img src={newsFeed} alt="" className="h-7 w-7" />
+              </div>
+              <Link to="/">
+                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
+                  Newsfeed
+                </span>
+              </Link>
+            </div>
+            <div className="flex items-center">
               <div className="avatar">
                 <div className="w-7 rounded-full">
                   <img
@@ -40,16 +50,7 @@ const NewFeeds = () => {
                 </span>
               </Link>
             </div>
-            <div className="flex items-center">
-              <div>
-                <img src={newsFeed} alt="" className="h-7 w-7" />
-              </div>
-              <Link to="/">
-                <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
-                  Newsfeed
-                </span>
-              </Link>
-            </div>
+
             {/* <div className="flex items-center">
               <div>
                 <img src={storyIcon} alt="" className="h-7 w-7" />
