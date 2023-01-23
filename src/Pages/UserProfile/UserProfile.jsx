@@ -201,9 +201,22 @@ const UserProfile = () => {
             </div>
             <div className="space-y-5">
               {/* <UserPost img={userPost1} /> */}
-              {posts.map((post) => (
-                <UserPost key={post._id} post={post} refetch={refetch} />
-              ))}
+
+              <UserPost
+                img={"https://i.ibb.co/0rMCwNT/1674460706815.png"}
+                likes={"10k"}
+                caption={"Ai"}
+              />
+              <UserPost
+                img={"https://i.ibb.co/brYpCMN/1674460706843.png"}
+                likes={"3k"}
+                caption={"Ai Nature Art"}
+              />
+              <UserPost
+                img={"https://i.ibb.co/HTs4Ms4/1674460706830.png"}
+                likes={"5k"}
+                caption={"Beauty Girls"}
+              />
             </div>
           </div>
         </div>
