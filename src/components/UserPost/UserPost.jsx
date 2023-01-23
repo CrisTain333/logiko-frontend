@@ -114,11 +114,7 @@ const UserPost = ({ img, caption, likes }) => {
         {/* user posted Image  */}
         {img ? (
           <div className="rounded-xl ">
-            <img
-              src={img}
-              className="rounded-xl h-96 w-96 object-contain mx-auto"
-              alt=""
-            />
+            <img src={img} className="rounded-xl " alt="" />
           </div>
         ) : null}
 

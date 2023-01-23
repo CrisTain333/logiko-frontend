@@ -120,11 +120,25 @@ const Home = () => {
 
               {/* User Post  */}
               <div className="w-[95%] mx-auto space-y-5 ">
-                {posts.map((post) => {
-                  return (
-                    <UserPost key={post._id} post={post} refetch={refetch} />
-                  );
-                })}
+                <UserPost
+                  caption={"Cristain Anime Art"}
+                  img={"https://i.ibb.co/2Pw3793/1674457080310.png"}
+                  likes={800}
+                />
+                <UserPost
+                  caption={"Dragon AI Art"}
+                  img={"https://i.ibb.co/rwz8wSF/1674457262848.png"}
+                  likes={300}
+                />
+                <UserPost
+                  caption={"Dragon With Angry Dad"}
+                  img={"https://i.ibb.co/Lrj5C4M/1674457262827.png"}
+                  likes={`1k`}
+                />
+                <UserPost
+                  caption={"Full Website Designed By Cristain"}
+                  likes={`2k`}
+                />
               </div>
             </div>
           </div>
