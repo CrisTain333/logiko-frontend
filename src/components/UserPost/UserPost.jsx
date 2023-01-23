@@ -7,62 +7,63 @@ import likedIcon from "../../assets/Icons/heart.png";
 import { AuthContext } from "../../context/AuthProvider";
 import getRelativeDateString from "../../Helper/getRelativeDateString";
 
-const UserPost = ({ post }) => {
-  const [loading, setLoading] = useState(false);
-  // const [likes, setLikes] = useState([]);
-  const [getUser, setGetUser] = useState([]);
-  const { user } = useContext(AuthContext);
-  useEffect(() => {
-    fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setGetUser(data);
-      });
-  }, [user?.email]);
-
-  // console.log(getUser);
-
-  // GET Likes for post
+const UserPost = ({ img, caption, likes }) => {
+  const date = new Date();
+  // const [loading, setLoading] = useState(false);
+  // // const [likes, setLikes] = useState([]);
+  // const [getUser, setGetUser] = useState([]);
+  // const { user } = useContext(AuthContext);
   // useEffect(() => {
-  //   setLoading(true);
-  //   fetch(`https://logiko-backend.vercel.app/api/v1/like/${post?._id}`)
+  //   fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
   //     .then((res) => res.json())
   //     .then((data) => {
-  //       setLikes(data);
-  //       setLoading(false);
+  //       setGetUser(data);
   //     });
-  //   setLoading(false);
-  // }, [post?._id, loading]);
+  // }, [user?.email]);
 
-  const { data: likes = [], refetch } = useQuery({
-    queryKey: ["likes"],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://logiko-backend.vercel.app/api/v1/like/${post?._id}`
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
+  // // console.log(getUser);
 
-  const handleLikeDislike = () => {
-    const likedUser = {
-      postId: post?._id,
-      userName: getUser?.username,
-      liked: true,
-    };
-    fetch("https://logiko-backend.vercel.app/api/v1/like", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(likedUser),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setLoading(true);
-        refetch();
-      });
-  };
+  // // GET Likes for post
+  // // useEffect(() => {
+  // //   setLoading(true);
+  // //   fetch(`https://logiko-backend.vercel.app/api/v1/like/${post?._id}`)
+  // //     .then((res) => res.json())
+  // //     .then((data) => {
+  // //       setLikes(data);
+  // //       setLoading(false);
+  // //     });
+  // //   setLoading(false);
+  // // }, [post?._id, loading]);
+
+  // const { data: likes = [], refetch } = useQuery({
+  //   queryKey: ["likes"],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `https://logiko-backend.vercel.app/api/v1/like/${post?._id}`
+  //     );
+  //     const data = await res.json();
+  //     return data;
+  //   },
+  // });
+
+  // const handleLikeDislike = () => {
+  //   const likedUser = {
+  //     postId: post?._id,
+  //     userName: getUser?.username,
+  //     liked: true,
+  //   };
+  //   fetch("https://logiko-backend.vercel.app/api/v1/like", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(likedUser),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setLoading(true);
+  //       refetch();
+  //     });
+  // };
 
   return (
     <div className="bg-base-200 rounded-xl shadow-md  p-6  mx-auto ">
@@ -74,14 +75,17 @@ const UserPost = ({ post }) => {
           <div className="flex items-center justify-between">
             <div className="avatar">
               <div className="w-14 shadow-sm rounded-full">
-                <img src={post?.userProfilePic} alt="" />
+                <img
+                  src="https://i.ibb.co/J5Fx2rW/Cris-Tains-Puja-beautiful-cartoon-boy8ksmart-2779a366-918c-4def-a898-f8c40b80a889.png"
+                  alt=""
+                />
               </div>
             </div>
             {/* user name and time */}
             <div className="ml-5">
-              <p className="text-sm font-bold text-base-900">{post?.name}</p>
+              <p className="text-sm font-bold text-base-900">Cristain</p>
               <p className="text-xs font-semibold text-neutral">
-                {getRelativeDateString(post?.date)}
+                {getRelativeDateString(date)}
               </p>
             </div>
           </div>
@@ -104,16 +108,14 @@ const UserPost = ({ post }) => {
         </div>
         {/* user Text  */}
         <div className="w-[90%] my-5">
-          <p className=" flex- flex-wrap text-sm text-accent">
-            {post?.postCaption}
-          </p>
+          <p className=" flex- flex-wrap text-sm text-accent">{caption}</p>
         </div>
 
         {/* user posted Image  */}
-        {post?.postImageImage ? (
+        {img ? (
           <div className="rounded-xl ">
             <img
-              src={post?.postImageImage}
+              src={img}
               className="rounded-xl h-96 w-96 object-contain mx-auto"
               alt=""
             />
@@ -125,7 +127,9 @@ const UserPost = ({ post }) => {
           <div className=" flex items-center">
             {/* react div  */}
             <div className="flex items-center justify-between">
-              <div onClick={handleLikeDislike}>
+              <div
+              // onClick={handleLikeDislike}
+              >
                 <img
                   src={likedIcon}
                   className="h-5 cursor-pointer hover:scale-125 transition-all duration-700"
@@ -134,7 +138,7 @@ const UserPost = ({ post }) => {
               </div>
 
               <p className="ml-2 text-sm font-bold text-base-900 flex">
-                {likes?.length}
+                {likes}
                 {/* <span className="hidden lg:block">like</span> */}
               </p>
             </div>
@@ -155,7 +159,7 @@ const UserPost = ({ post }) => {
                 />
               </svg>
               <p className="ml-2 text-sm font-bold text-base-900 flex">
-                {post?.comments.length}
+                22k
                 {/* <span className="hidden lg:block ml-2">Comment</span> */}
               </p>
             </div>
