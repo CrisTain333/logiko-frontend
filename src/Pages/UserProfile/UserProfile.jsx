@@ -76,17 +76,13 @@ const UserProfile = () => {
                 <div className="outline outline-4 outline-base-200 rounded-full">
                   <img
                     className="object-cover w-32 h-32   lg:w-32 lg:h-32 rounded-full"
-                    src={userData?.profilePic}
+                    src="https://i.ibb.co/J5Fx2rW/Cris-Tains-Puja-beautiful-cartoon-boy8ksmart-2779a366-918c-4def-a898-f8c40b80a889.png"
                     alt=""
                   />
                 </div>
                 <div className="pb-5 hidden lg:block">
-                  <p className="text-2xl text-base-900 font-bold">
-                    {userData?.name}
-                  </p>
-                  <p className="text-sm text-base-900">
-                    {userData.friends.length} Friends
-                  </p>
+                  <p className="text-2xl text-base-900 font-bold">Cristain</p>
+                  <p className="text-sm text-base-900">200 Friends</p>
                 </div>
               </div>
             </div>
@@ -94,12 +90,8 @@ const UserProfile = () => {
 
           <div className="mt-16 lg:hidden ">
             <div className="ml-5 ">
-              <p className="text-2xl text-base-900 font-bold">
-                {userData?.name}
-              </p>
-              <p className="text-sm text-base-900">
-                {userData.friends.length} Friends
-              </p>
+              <p className="text-2xl text-base-900 font-bold">Cristain</p>
+              <p className="text-sm text-base-900">200 Friends</p>
             </div>
           </div>
 
