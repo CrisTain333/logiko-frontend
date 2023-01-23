@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const NewFeeds = () => {
-  const [getUser, setGetUser] = useState([]);
-  const { user } = useContext(AuthContext);
-  useEffect(() => {
-    fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setGetUser(data);
-      });
-  }, [user?.email]);
+  // const [getUser, setGetUser] = useState([]);
+  // const { user } = useContext(AuthContext);
+  // useEffect(() => {
+  //   fetch(`https://logiko-backend.vercel.app/api/v1/user/${user?.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setGetUser(data);
+  //     });
+  // }, [user?.email]);
 
   return (
     <>
@@ -28,10 +28,13 @@ const NewFeeds = () => {
             <div className="flex items-center">
               <div className="avatar">
                 <div className="w-7 rounded-full">
-                  <img src={getUser?.profilePic} alt="" />
+                  <img
+                    src="https://i.ibb.co/J5Fx2rW/Cris-Tains-Puja-beautiful-cartoon-boy8ksmart-2779a366-918c-4def-a898-f8c40b80a889.png"
+                    alt=""
+                  />
                 </div>
               </div>
-              <Link to={`/user-profile/${getUser?.username}`}>
+              <Link to={`/user-profile/cristain`}>
                 <span className="text-accent font-semibold ml-3 hover:text-primary transition-all duration-500 cursor-pointer">
                   Profile
                 </span>

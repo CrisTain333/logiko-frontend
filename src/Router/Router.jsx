@@ -12,7 +12,7 @@ import SavedAddress from "../Pages/Settings/SavedAddress/SavedAddress";
 import Settings from "../Pages/Settings/Settings";
 import SocialAccount from "../Pages/Settings/SocialAccount/SocialAccount";
 import UserProfile from "../Pages/UserProfile/UserProfile";
-import PrivateRoute from "./Private/PrivateRoute";
+// import PrivateRoute from "./Private/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,12 +24,12 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/user-profile/:id",
-        loader: async ({ params }) => {
-          return fetch(
-            `https://logiko-backend.vercel.app/api/v1/user-profile/${params.id}`
-          );
-        },
+        path: "/user-profile/cristain",
+        // loader: async ({ params }) => {
+        //   return fetch(
+        //     `https://logiko-backend.vercel.app/api/v1/user-profile/${params.id}`
+        //   );
+        // },
         element: <UserProfile />,
       },
       {
